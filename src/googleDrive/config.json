@@ -1,0 +1,22 @@
+{
+  "api" : {
+    "setup_url": "https://console.cloud.google.com/apis/credentials",
+    "api_key": "AIzaSyAM8Zar7FG6VZmhzSljjnHvuDiBX7XgyRc",
+    "client_id": "1066903090722-e00tu2pcn04s2d3fm0e4th6hpakvmhsb.apps.googleusercontent.com",
+    "client_secret": "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",
+    "scopes": "https://www.googleapis.com/auth/drive.metadata.readonly"
+  },
+  "directory": {
+    "team_drive":"",
+    "target_folder": "QkVsejmN1SqJ2gQGksWiesh71xxiVJi9"
+  },
+  "components": {
+    "HeaderImages": {
+      "homepage_url":"http://localhost:3000/",
+      "logo_url": "",
+      "logo_alt": "",
+      "logo_width":"300px",
+      "logo_color": ""
+    }
+  }
+}

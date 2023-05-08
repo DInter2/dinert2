@@ -1,3 +1,4 @@
+import { Todo } from "@/app/page"
 import { People } from "../list/ListTile"
 
 export const Card = ({people}: {people: People}) => {
@@ -11,4 +12,15 @@ export const Card = ({people}: {people: People}) => {
 				<p className="text-slate-500 group-hover/Card:text-white text-sm">{people.title}</p>
 			</a>
     )
+}
+
+export const CardTodo = ({todo}: {todo: Todo}) => {
+	return (
+		<a href="#" className="group/Card block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+			<div className="flex items-center space-x-3">
+				<h3 className="text-slate-900 group-hover/Card:text-white text-sm font-semibold">{ todo.title }</h3>
+			</div>
+			<p className="text-slate-500 group-hover/Card:text-white text-sm">{todo.completed? "completed": " is not completed"}</p>
+		</a>
+	)
 }
