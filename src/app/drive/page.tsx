@@ -9,7 +9,7 @@ export interface Folder{
 
 async function getData(): Promise<Folder[]> {
   const res = await fetch('https://script.google.com/macros/s/AKfycbyAc3ZJt_iWvWneU720J8Lcj8XScR_-HBX6wdY9JuvJzpWO5V4PJbZw3d6WRf2Y5k25PA/exec',
-  // { cache: 'no-store' }
+    { cache: 'no-store' }
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.

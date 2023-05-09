@@ -8,7 +8,8 @@ export const FileIcon = ({mimeType}: {mimeType: string}) => {
   switch (mimeType) {
     case "application/vnd.google-apps.document":
       return <div  className="h-16 w-16 rounded-sm bg-sky-500 flex justify-center items-center" >
-        <CgLoadbarDoc color="white" className="h-16 w-16"/></div>
+                <CgLoadbarDoc color="white" className="h-16 w-16"/>
+              </div>
     case "application/msword":
       return <AiFillFileWord color="blue" className="h-20 w-20"/>
     case "application/pdf":
