@@ -1,19 +1,6 @@
-import Image from "next/image"
-import Link from "next/link"
-import { FileImage } from "./fileImage"
 import { DateBr } from "@/core/dateConvereter"
-import { ImageResponse } from "next/server"
 import { FileIcon } from "./fileIcon"
-
-export interface FileDto{
-  id: string,
-  name: string,
-  mimeType: string,
-  url: string,
-  thumbnail: string,
-  content: string,
-  updatedAt: string
-}
+import { FileDto } from "@/app/types/File"
 
 export function FileCard({file}:{file:FileDto}){
   return (

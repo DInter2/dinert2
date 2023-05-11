@@ -1,4 +1,5 @@
-import { Folder } from "@/app/drive/page";
+import { Folder } from "@/app/types/Folder";
+import BasicMenu from "../menu/MenuDrop";
 
 export const MobileMenuContent = ({menus}: {menus: Folder[]}) => {
   return (
@@ -6,14 +7,10 @@ export const MobileMenuContent = ({menus}: {menus: Folder[]}) => {
       {menus.sort(function (str1, str2) {
         return str1.name.localeCompare(str2.name);
       }).map((menu)=>{
-        const name = menu.name.split("_")[1];
-         return <a key={menu.id} href={`/${name.toLowerCase()}`} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-          {name}
-          </a>
+        return  <BasicMenu key={menu.id} menu={menu}/>
       })}
-      <a href="/drive" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-          DRIVE
-          </a>
-      </div>
+
+        <a href="/drive" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"></a>
+    </div>
   )
 }

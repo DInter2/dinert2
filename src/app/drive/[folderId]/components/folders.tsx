@@ -1,8 +1,10 @@
+import { Folder } from "@/app/types/Folder";
 import { FolderCard } from "../../components/folder_card";
-import { Folder } from "../page";
-import { FileCard, FileDto } from "./files/filesCards";
+import { FileCard } from "./files/filesCards";
+import { FileDto } from "@/app/types/File";
 
 export interface RootFolderDto{
+  folderName: string,
   folders: Folder[],
   files: FileDto[]
 }

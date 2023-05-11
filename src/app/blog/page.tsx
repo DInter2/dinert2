@@ -1,5 +1,3 @@
-import uploadFile  from "@/googleDrive/config";
-
 export default function Page() {
 
   return(

@@ -1,12 +1,12 @@
 import { Suspense } from "react"
 import { MobileMemu } from "./mobileMenu"
 import { MobileMenuContent } from "./mobileMenuContent"
-import { Folder } from "@/app/drive/page";
+import { Folder } from "@/app/types/Folder";
 
 export const Nav = ({menus}:{menus: Folder[]}) => {
   return (
-    <nav className="bg-gray-800">
-				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav>
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-gray-800">
 				<div className="flex h-16 items-center justify-between">
 					<div className="flex items-center">
 					<div className="flex-shrink-0">
@@ -31,11 +31,7 @@ export const Nav = ({menus}:{menus: Folder[]}) => {
 							<span className="sr-only">Open user menu</span>
 							</button>
 						</div>
-						<div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" >
-							<a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-0">Your Profile</a>
-							<a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-1">Settings</a>
-							<a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-2">Sign out</a>
-						</div>
+							{/* <Menu /> */}
 						</div>
 					</div>
 					</div>
