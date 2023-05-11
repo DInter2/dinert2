@@ -1,4 +1,6 @@
-import { Folders, RootFolderDto } from "@/app/drive/[folderId]/components/folders";
+import { Folders,  } from "@/app/drive/[folderId]/components/folders";
+import { RootFolderDto } from "@/app/types/RootFolder";
+import Markdown from "./components/Markdown";
 
 
 export interface Todo {
@@ -16,7 +18,8 @@ export interface Folder{
 
 async function getDataById(menuId: string): Promise<RootFolderDto> {
   const res = await fetch(
-    `https://script.google.com/macros/s/AKfycbxdwTbGYbK1Ku-KG0jgaByox6XfzOauc3dSJoGwVUO78HBHQ9FaQzDqTJsgwE4cdQES-w/exec?folderId=${menuId}`,
+    `https://script.google.com/macros/s/AKfycbz00VKAR1si6n1ympOSHJugZPvBXOssUSNgX8uvRpWLOsWVMwXZGouPxzQhpv37ji6_Sw/exec?folderId=${menuId}`,
+    { next: { revalidate: 360 } }
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -28,9 +31,12 @@ async function getDataById(menuId: string): Promise<RootFolderDto> {
 export default async  function DriveFolder({ params: { menuId }}: {params: {menuId: string}}) {
   const data = await getDataById(menuId)
   return (
-    <main className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-2">
-        <Folders rootFolderId={data} />
-    </main>
+    <div >
+      {data.files.map((file)=>{
+        return <Markdown key={file.id} content={file.content}/>
+      })}
+        {/* <Folders rootFolderId={data} /> */}
+    </div>
   )
 }
 

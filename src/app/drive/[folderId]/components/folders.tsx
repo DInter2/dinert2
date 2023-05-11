@@ -3,7 +3,7 @@ import { FolderCard } from "../../components/folder_card";
 import { FileCard } from "./files/filesCards";
 import { FileDto } from "@/app/types/File";
 
-export interface RootFolderDto{
+interface RootFolderDto{
   folderName: string,
   folders: Folder[],
   files: FileDto[]
@@ -17,11 +17,7 @@ export function Folders({rootFolderId}: {rootFolderId: RootFolderDto}) {
       {rootFolderId.folders.sort(function(a,b): number{
         return a.name.localeCompare(b.name)
       }).map((folder)=>{
-        return (
-          <div key={folder.id}>
-            <FolderCard folder={folder} />
-          </div>
-        )
+        return <FolderCard key={folder.id} folder={folder} />
       })}
       {rootFolderId.files.map((file) => <FileCard key={file.id} file={file}/>)}
     </>

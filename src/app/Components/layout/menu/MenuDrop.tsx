@@ -5,6 +5,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Folder } from '@/app/types/Folder';
 import { childName } from '@/core/splitName';
+import { useRouter } from 'next/navigation';
 
 export default function BasicMenu({menu}: {menu: Folder}) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -15,19 +16,23 @@ export default function BasicMenu({menu}: {menu: Folder}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const isEmptyFolder = menu.folders.length != 0;
+  const router = useRouter()
   return (
     <div>
       <Button
+        sx={{
+          color: "white"
+        }}
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
+        onClick={isEmptyFolder?  handleClick: () =>  router.push(`/${menu.name.split("_")[1]}/${menu.id}`)}
       >
         {menu.name.split("_")[1]}
       </Button>
-      { menu.folders.length != 0 &&<Menu
+      { isEmptyFolder &&<Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}

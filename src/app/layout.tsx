@@ -31,7 +31,7 @@ export default async function RootLayout({
         <div className="min-h-full">
         <Nav menus={menus.folders}/>
 			<main>
-				<div className="mx-auto max-w-7xl h-screen py-4 sm:px-6 lg:px-8 bg-blue-100">
+				<div className="mx-auto max-w-7xl min-h-screen py-4 sm:px-6 lg:px-8 bg-blue-100">
           { children }
 				</div>
 			</main>
