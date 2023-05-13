@@ -8,6 +8,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.intranet.bombeiros.pe.gov.br',
+        port: '',
+        pathname: '/**',
+      },
     ],
     domains: ['lh3.google.com', "s3.amazonaws.com"],
   },

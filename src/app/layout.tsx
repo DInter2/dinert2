@@ -1,7 +1,12 @@
 import { RootFolderDto } from './types/RootFolder'
-import { Nav } from './Components/layout/nav/nav'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import MainContent from './Components/layout/content/MainContent'
+import { CustonThemeProvider } from './Components/client/theme/MuiTheme.Context'
+import Footer from './Components/layout/footer/Footer'
+import HeaderDrawer from './Components/layout/header_drawer/HeaderDrawer'
+import MuiThemeClient from './Components/client/theme/MuiTheme.Client'
+import DrawerServer from './Components/layout/drawer/DrawerServer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,7 +17,7 @@ export const metadata = {
 async function getMobileMenus() :Promise<RootFolderDto>{
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbzZEIm4IKP3SHz6A0hf6y7gvVELqZiGutV5_Hzy9PDBHwY6F3yZEvkjSO0BvboVDfXjLQ/exec?folderId=1S0xfEFx6JRZj1ldN2won-SpXZC7QBQ17`,
-    // { next: { revalidate: 360 } }
+
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -24,19 +29,22 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const menus = await getMobileMenus()
+  const menus = getMobileMenus()
   return (
     <html lang="pt">
-      <body className={inter.className}><section>
-        <div className="min-h-full">
-        <Nav menus={menus.folders}/>
-			<main>
-				<div className="mx-auto max-w-7xl min-h-screen py-4 sm:px-6 lg:px-8 bg-blue-100">
-          { children }
-				</div>
-			</main>
-			</div>
-      </section></body>
+      <body className={inter.className}>
+          <MuiThemeClient>
+            <HeaderDrawer>
+              <DrawerServer data={(await menus).folders}/>
+            </HeaderDrawer>
+            <MainContent >
+              <div className='min-h-screen min-w-max flex-1'>
+                { children }
+              </div>
+              <Footer description='Descrição' title='DInter 2'/>
+            </MainContent>
+        </ MuiThemeClient>
+     </body>
     </html>
   )
 }
