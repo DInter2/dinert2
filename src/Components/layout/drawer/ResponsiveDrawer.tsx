@@ -122,29 +122,3 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
     </ThemeProvider>
   );
 }
-
-// const Drawer = ({ isOpen, onClose, children }) => {
-//   return (
-//     <div className={`fixed inset-0 overflow-hidden ${isOpen ? "z-50" : "-z-1"}`}>
-//       <div className="absolute inset-0 overflow-hidden">
-//         <div className="absolute inset-0 transition-opacity" aria-hidden="true">
-//           <div
-//             className="bg-cover bg-center h-full"
-//             style={{
-//               backgroundImage:
-//                 "url('https://caminho/para/imagem-de-fundo.jpg')",
-//             }}
-//           ></div>
-//         </div>
-
-//         <div className="fixed inset-y-0 right-0 pl-10 max-w-full flex">
-//           <div className="w-screen max-w-md">
-//             <div className="h-full divide-y divide-gray-200 bg-white shadow-xl overflow-y-auto">
-//               {children}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };

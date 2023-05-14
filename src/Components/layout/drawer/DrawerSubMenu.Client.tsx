@@ -16,7 +16,13 @@ const DrawerSubMenu = ({ title, id }: { title: string, id: string }) => {
   return (
     <div className="my-1 bg-amber-600w-full ml-2 box-border">
       <button
-        className="flex hover:bg-orange-500  w-full box-border px-3 items-center justify-between  rounded-md bg-opacity-80 bg-black backdrop-blur-sm py-2 text-white hover:bg-opacity-100 focus:bg-orange-500"
+        className="flex hover:bg-orange-500
+                    w-full box-border px-3
+                    items-center justify-between
+                    rounded-md bg-opacity-80
+                    bg-black backdrop-blur-sm py-2
+                    text-white hover:bg-opacity-100
+                    focus:bg-orange-500"
         style={{ backdropFilter: "blur(1px)" }}
         onClick={handleClick}
       >

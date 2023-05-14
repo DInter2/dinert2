@@ -4,7 +4,6 @@ import { Folder } from '@/app/types/Folder';
 import DrawerSubMenu from './DrawerSubMenu.Client';
 
  const DrawerServer = ({data}: {data: Folder[]})  => {
-
   return (
     <div className="container mx-auto pt-4">
       {data.map((folder) => (

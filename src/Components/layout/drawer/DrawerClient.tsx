@@ -11,7 +11,6 @@ const DrawerClient = ({ title, children, id }: { title: string, id: string, chil
   const router = useRouter();
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
-
   const handleClick = () => {
     if(isLargeScreen){
       toggleSidebar()
