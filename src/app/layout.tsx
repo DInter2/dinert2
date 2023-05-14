@@ -7,6 +7,7 @@ import MuiThemeClient from '../Components/client/clienteContext/Context.Client'
 import DrawerServer from '../Components/layout/drawer/DrawerServer'
 import AppBarHeader from '@/Components/layout/header/AppBarHeader'
 import ResponsiveDrawer from '@/Components/layout/drawer/ResponsiveDrawer'
+import MuiDrawer from '@/Components/layout/drawer/material ui/Drawer.Mui'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,7 @@ export const metadata = {
 async function getMobileMenus() :Promise<RootFolderDto>{
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbzZEIm4IKP3SHz6A0hf6y7gvVELqZiGutV5_Hzy9PDBHwY6F3yZEvkjSO0BvboVDfXjLQ/exec?folderId=1S0xfEFx6JRZj1ldN2won-SpXZC7QBQ17`,
-
+    {cache: "no-cache"}
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -35,6 +36,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <MuiThemeClient>
           <AppBarHeader />
+          {/* <MuiDrawer /> */}
             <ResponsiveDrawer>
               <DrawerServer data={(await menus).folders}/>
             </ResponsiveDrawer>

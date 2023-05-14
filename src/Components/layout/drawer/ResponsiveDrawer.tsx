@@ -40,10 +40,10 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               height: `calc(98vh)`,
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              backgroundImage:'url(/images/drawer.jpg)',
               "&:before":{
+                backgroundPosition: 'center center',
+                backgroundSize: 'cover',
+                backgroundImage:'url(/images/drawer.jpg)',
                 opacity: 0.4,
                 bgcolor: "black",
                 content: "' '",
@@ -55,8 +55,6 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
                 height: `calc(98vh)`,
                 zIndex: 0,
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "50% 0",
-                backgroundSize: "cover",
               }
             },
           }}
@@ -84,10 +82,10 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               boxSizing: "border-box",
               width: drawerWidth,
               // zIndex: 1,
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              backgroundImage:'url(/images/drawer.jpg)',
               "&:before":{
+                backgroundPosition: 'center center',
+                backgroundSize: 'cover',
+                backgroundImage:'url(/images/drawer.jpg)',
                 opacity: 0.4,
                 bgcolor: "black",
                 borderRadius: 2,
@@ -101,8 +99,6 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
                 height: `calc(98vh)`,
                 zIndex: 0,
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "50% 0",
-                backgroundSize: "cover",
               }
 
               // backgroundColor: "color.primary",
