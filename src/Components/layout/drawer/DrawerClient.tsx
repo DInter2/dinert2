@@ -9,7 +9,6 @@ const DrawerClient = ({ title, children, id }: { title: string, id: string, chil
   const [expanded, setExpanded] = useState(false);
   const { isOpen, toggleSidebar } = useSidebar();
   const router = useRouter();
-  const isChildren = children?.valueOf() === 0
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
 
@@ -21,9 +20,9 @@ const DrawerClient = ({ title, children, id }: { title: string, id: string, chil
   }
 
   return (
-    <div className="my-1 bg-amber-600w-full mx-2 box-border">
+    <div className=" my-1 bg-amber-600w-full mx-2 box-border">
       <button
-        className="flex w-full box-border px-3 items-center justify-between  rounded-md bg-opacity-80 bg-black backdrop-blur-sm py-2 text-white hover:bg-opacity-100 hover:bg-gray-700 focus:outline-none"
+        className="hover:bg-orange-500 flex w-full box-border px-3 items-center justify-between  rounded-md bg-opacity-80 bg-black backdrop-blur-sm py-2 text-white hover:bg-opacity-100"
         style={{ backdropFilter: "blur(1px)" }}
         onClick={children!!? () => setExpanded(!expanded): handleClick }
       >

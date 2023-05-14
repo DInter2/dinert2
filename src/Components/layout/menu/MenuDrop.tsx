@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Folder } from '@/app/types/Folder';
-import { childName } from '@/core/splitName';
+import { childName } from '@/app/core/splitName';
 import { useRouter } from 'next/navigation';
 
 export default function BasicMenu({menu}: {menu: Folder}) {

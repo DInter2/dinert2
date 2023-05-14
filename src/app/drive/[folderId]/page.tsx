@@ -1,5 +1,5 @@
 import { Folders } from "./components/folders"
-import { childName } from "@/core/splitName";
+import { childName } from "@/app/core/splitName";
 import { RootFolderDto } from "@/app/types/RootFolder";
 import Folder from "./components/Folder/Folder.Server";
 

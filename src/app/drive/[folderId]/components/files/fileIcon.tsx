@@ -11,14 +11,14 @@ export const FileIcon = ({mimeType}: {mimeType: string}) => {
                 <CgLoadbarDoc color="white" className="h-16 w-16"/>
               </div>
     case "application/msword":
-      return <AiFillFileWord color="blue" className="h-20 w-20"/>
+      return <AiFillFileWord color="blue" className="h-5 w-5"/>
     case "application/pdf":
-      return <AiFillFilePdf color="red" className="h-20 w-20"/>
+      return <AiFillFilePdf color="red" className="h-5 w-5"/>
     case "application/vnd.google-apps.spreadsheet":
-      return <SiGooglesheets color="green" className="h-20 w-20"/>
+      return <SiGooglesheets color="green" className="h-5 w-5"/>
     case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
-      return <AiFillFileExcel color="green" className="h-20 w-20"/>
+      return <AiFillFileExcel color="green" className="h-5 w-5"/>
     default:
-      return <BsFilePdfFill color="red" className="h-20 w-20"/>
+      return <BsFilePdfFill color="red" className="h-5 w-5"/>
   }
 }
