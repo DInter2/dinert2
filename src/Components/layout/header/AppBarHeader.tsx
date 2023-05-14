@@ -1,17 +1,27 @@
 'use client'
 import { Box, AppBar } from '@mui/material'
-import React from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { appBarHeight } from '../../consts/appBarHeigth'
 import { drawerWidth } from '../../consts/drawerWidth'
 import { Header } from './Header'
 
-const AppBarHeader = ({ scrollPosition, handleDrawerToggle }: { scrollPosition: number, handleDrawerToggle: () => void }) => {
+const AppBarHeader = () => {
+  const [scrollPosition, setPosition] = useState(0);
+
+  useLayoutEffect(() => {
+    function updatePosition() {
+      setPosition(window.pageYOffset);
+    }
+    window.addEventListener('scroll', updatePosition);
+    updatePosition();
+    return () => window.removeEventListener('scroll', updatePosition);
+  }, []);
   return (
     <Box
     height={appBarHeight}
     >
       <AppBar
-          elevation={scrollPosition === 0 ? 0: 0}
+          elevation={scrollPosition === 0 ? 0: 1}
           position="fixed"
           sx={{
             backdropFilter:scrollPosition === 0 ? undefined : "blur(4px)",
@@ -24,9 +34,7 @@ const AppBarHeader = ({ scrollPosition, handleDrawerToggle }: { scrollPosition: 
             marginX: "1%",
           }}
         >
-          <Header
-            handleDrawerToggle={handleDrawerToggle}
-          />
+          <Header />
       </AppBar>
     </Box>
   )

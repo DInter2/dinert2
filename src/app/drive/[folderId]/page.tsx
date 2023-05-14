@@ -1,6 +1,7 @@
 import { Folders } from "./components/folders"
 import { childName } from "@/core/splitName";
 import { RootFolderDto } from "@/app/types/RootFolder";
+import Folder from "./components/Folder/Folder.Server";
 
 export interface Todo {
     userId: number,
@@ -34,16 +35,9 @@ async function getDataById(folderId: string): Promise<RootFolderDto> {
 export default async  function DriveFolder({ params: { folderId }}: {params: {folderId: string}}) {
   const data = await getDataById(folderId)
   return (
-    <section>
-      <header className="bg-orange-200 shadow mb-2">
-				<div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-				<h1 className="text-3xl font-bold tracking-tight text-gray-900">{childName(data.folderName)}</h1>
-				</div>
-			</header>
-      <main className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-2">
-          <Folders rootFolderId={data} />
-      </main>
-    </section>
+    <Folder title={data.folderName} >
+      <Folders rootFolderId={data}/>
+    </Folder>
   )
 }
 

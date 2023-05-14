@@ -1,12 +1,12 @@
 import { RootFolderDto } from './types/RootFolder'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import MainContent from './Components/layout/content/MainContent'
-import { CustonThemeProvider } from './Components/client/theme/MuiTheme.Context'
-import Footer from './Components/layout/footer/Footer'
-import HeaderDrawer from './Components/layout/header_drawer/HeaderDrawer'
-import MuiThemeClient from './Components/client/theme/MuiTheme.Client'
-import DrawerServer from './Components/layout/drawer/DrawerServer'
+import MainContent from '../Components/layout/content/MainContent'
+import Footer from '../Components/layout/footer/Footer'
+import MuiThemeClient from '../Components/client/clienteContext/Context.Client'
+import DrawerServer from '../Components/layout/drawer/DrawerServer'
+import AppBarHeader from '@/Components/layout/header/AppBarHeader'
+import ResponsiveDrawer from '@/Components/layout/drawer/ResponsiveDrawer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,16 +33,17 @@ export default async function RootLayout({
   return (
     <html lang="pt">
       <body className={inter.className}>
-          <MuiThemeClient>
-            <HeaderDrawer>
+        <MuiThemeClient>
+          <AppBarHeader />
+            <ResponsiveDrawer>
               <DrawerServer data={(await menus).folders}/>
-            </HeaderDrawer>
-            <MainContent >
-              <div className='min-h-screen min-w-max flex-1'>
-                { children }
-              </div>
-              <Footer description='Descrição' title='DInter 2'/>
-            </MainContent>
+            </ResponsiveDrawer>
+          <MainContent >
+            <div className='min-h-screen min-w-max flex-1'>
+              { children }
+            </div>
+            <Footer description='Descrição' title='DInter 2'/>
+          </MainContent>
         </ MuiThemeClient>
      </body>
     </html>

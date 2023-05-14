@@ -9,15 +9,16 @@ import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { darkTheme } from "../../client/theme/MuiTheme.Theme";
 import { drawerWidth } from "../../consts/drawerWidth";
 import { Logo } from "../logo/Logo";
-import MenuDrawerList from "./MenuDrawerList";
 import { ReactNode } from "react";
+import { useSidebar } from "../../client/sidebar/Sidebar.Context";
 
 
 type ResponsiveDrawerProps = {
   open: boolean;
   onClose: ((event: {}, reason: "backdropClick" | "escapeKeyDown") => void);
 }
-export default function ResponsiveDrawer({ randle: {onClose, open}, children}:{ randle:  ResponsiveDrawerProps, children: ReactNode}) {
+export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
+  const { isOpen, toggleSidebar } = useSidebar();
   return (
     <ThemeProvider theme={darkTheme}>
       <Box
@@ -28,8 +29,8 @@ export default function ResponsiveDrawer({ randle: {onClose, open}, children}:{ 
         <Drawer
           style={{width: drawerWidth,}}
           variant="temporary"
-          open={open}
-          onClose={onClose}
+          open={isOpen}
+          onClose={toggleSidebar}
           ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block",

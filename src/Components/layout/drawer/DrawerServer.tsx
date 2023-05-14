@@ -9,7 +9,8 @@ import DrawerSubMenu from './DrawerSubMenu.Client';
     <div className="container mx-auto pt-4">
       {data.map((folder) => (
         <DrawerClient key={folder.id} title={folder.name.split("_")[1]} id={folder.id}>
-          {folder.folders.length!! && folder.folders.map((folder)=> <DrawerSubMenu key={folder.id} {...{
+          {folder.folders.length!! && folder.folders.map((folder)=>
+            <DrawerSubMenu key={folder.id} {...{
             id: folder.id,
             title: folder.name,
           }} />)}

@@ -2,16 +2,30 @@
 import React, { ReactNode, useState } from 'react'
 import TayColapse from '../../widgets/TayColapse';
 import { useRouter } from 'next/navigation';
+import { useSidebar } from '@/Components/client/sidebar/Sidebar.Context';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const DrawerClient = ({ title, children, id }: { title: string, id: string, children: ReactNode }) => {
   const [expanded, setExpanded] = useState(false);
+  const { isOpen, toggleSidebar } = useSidebar();
   const router = useRouter();
+  const isChildren = children?.valueOf() === 0
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
+
+  const handleClick = () => {
+    if(isLargeScreen){
+      toggleSidebar()
+    }
+    router.push(`/${title.toLowerCase()}/${id}`)
+  }
+
   return (
     <div className="my-1 bg-amber-600w-full mx-2 box-border">
       <button
         className="flex w-full box-border px-3 items-center justify-between  rounded-md bg-opacity-80 bg-black backdrop-blur-sm py-2 text-white hover:bg-opacity-100 hover:bg-gray-700 focus:outline-none"
         style={{ backdropFilter: "blur(1px)" }}
-        onClick={children!!? () => setExpanded(!expanded): () => router.push(`/${title.toLowerCase()}/${id}`)}
+        onClick={children!!? () => setExpanded(!expanded): handleClick }
       >
         <span>{title}</span>
         {children!!? <svg

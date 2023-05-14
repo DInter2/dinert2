@@ -7,12 +7,10 @@ import { GoSearch } from 'react-icons/go';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import SocialIcons from './SocialIcons';
 import HeaderMenu from './HeaderMenu';
+import { useSidebar } from '../../client/sidebar/Sidebar.Context';
 
-export const Header = ({
-  handleDrawerToggle,
-}: {
-  handleDrawerToggle?: () => void;
-})  => {
+export const Header = ()  => {
+  const { isOpen, toggleSidebar } = useSidebar();
   const [ isSearch, setIssearch] = useState(false);
   return (
     <Toolbar  variant="dense">
@@ -21,10 +19,10 @@ export const Header = ({
         edge="start"
         color="default"
         aria-label="menu"
-        onClick={handleDrawerToggle}
+        onClick={toggleSidebar}
         sx={{ mr: 2, display: { lg: "none" } }}
       >
-        <HiOutlineMenuAlt3 />
+        <HiOutlineMenuAlt3 size={30}/>
       </IconButton>
       <Box
         color="inherit"
