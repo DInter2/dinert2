@@ -1,5 +1,4 @@
 import { Folders } from "./components/folders"
-import { childName } from "@/app/core/splitName";
 import { RootFolderDto } from "@/app/types/RootFolder";
 import Folder from "./components/Folder/Folder.Server";
 
@@ -19,13 +18,8 @@ export interface Folder{
 async function getDataById(folderId: string): Promise<RootFolderDto> {
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbz00VKAR1si6n1ympOSHJugZPvBXOssUSNgX8uvRpWLOsWVMwXZGouPxzQhpv37ji6_Sw/exec?folderId=${folderId}`,
-    // { next: { revalidate: 360 } }
     );
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-  // Recommendation: handle errors
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');
   }
   return res.json();

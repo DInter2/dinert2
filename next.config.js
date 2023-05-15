@@ -14,7 +14,14 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
+
     domains: ['lh3.google.com', "s3.amazonaws.com"],
   },
   experimental: {

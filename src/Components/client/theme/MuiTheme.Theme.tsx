@@ -1,4 +1,5 @@
 'use client'
+
 import { createTheme } from "@mui/material";
 
 const components = {
@@ -32,6 +33,7 @@ const components = {
     },
   },
 };
+
 export const darkTheme = createTheme({
    components: components,
   palette: {

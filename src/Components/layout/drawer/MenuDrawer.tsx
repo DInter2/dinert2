@@ -2,6 +2,7 @@
 import { Folder } from '@/app/types/Folder';
 import { ListItem, ListItemButton, ListItemText, Collapse, Box, Typography, Stack, Skeleton } from '@mui/material';
 import { useState } from 'react';
+import { AiOutlineRight, AiOutlineDown } from 'react-icons/ai'
 export type DrawerProps = {
   open: boolean;
   onClose: () => void;
@@ -12,7 +13,7 @@ type OpenProps = {
   open: boolean;
   key: string;
 }
-export default function MenuDrawer({ open, onClose, isOparation, folders }: DrawerProps) {
+export default function MenuDrawer({  folders }: {folders: Folder[]}) {
 
   const [openMenu, setOpenMenu] = useState<OpenProps>({key:"@", open: false});
 
@@ -36,7 +37,7 @@ export default function MenuDrawer({ open, onClose, isOparation, folders }: Draw
               {menu.name}
             </Typography>
           </ListItemText>
-          {/* {menu.folders.length !== 0 && (openMenu.open && openMenu.key === menu.id ? <KeyboardArrowDownIcon/> : <ChevronRight /> )} */}
+          {menu.folders!! && (openMenu.open && openMenu.key === menu.id ? <AiOutlineDown/> : <AiOutlineRight /> )}
         </ListItem>
       </ ListItemButton>
       <Collapse  in={openMenu.open && openMenu.key === menu.id} timeout="auto" unmountOnExit>
