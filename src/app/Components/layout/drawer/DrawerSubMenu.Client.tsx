@@ -3,7 +3,7 @@ import React from 'react'
 import { useRouter } from 'next/navigation';
 import { childName } from '@/app/core/splitName';
 import { TayTypography } from '../../widgets/TayTypography';
-import { useSidebar } from '@/Components/client/sidebar/Sidebar.Context';
+import { useSidebar } from '@/app/Components/client/sidebar/Sidebar.Context';
 
 
 const DrawerSubMenu = ({ title, id }: { title: string, id: string }) => {

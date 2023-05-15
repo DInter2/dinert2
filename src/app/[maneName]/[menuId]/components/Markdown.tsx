@@ -6,40 +6,37 @@ const Markdown = ({content}: {content: string}) => {
   return (
       <Paper sx={{
         maxWidth: {xl: "75vw", lg: "70vw", xs: "85vw"},
-        p: 4,
+        p: {md: 4, sm: 1 } ,
         fontSize: "ms"
       }}>
-        <Typography sx={{color: "text.primary"}}>
-          <MuiMarkdown
-            overrides={{
-              ...getOverrides({}),
-              a: {
-                component: 'a',
-                props: {
-                  style: {
-                    color: 'blue',
-                    textDecoration: "none",
-                    },
-                },
-              },
-              img: {
-                component: "img",
-                props: {
-                  style: {
-                    marginTop: "15px",
-                    marginBottom: "15px",
-                    height: "300px",
-                    position: "relative",
-                    top: "50%",
-                    left: "50%",
-                    maxWidth: "100%",
-                    transform:" translate(-50%, -0%)",
+        <MuiMarkdown
+          overrides={{
+            ...getOverrides({}),
+            a: {
+              component: 'a',
+              props: {
+                style: {
+                  color: 'blue',
+                  textDecoration: "none",
                   },
-                } as React.HTMLProps<HTMLImageElement>,
               },
-            }}>{content}</ MuiMarkdown>
-
-        </Typography>
+            },
+            img: {
+              component: "img",
+              props: {
+                style: {
+                  marginTop: "15px",
+                  marginBottom: "15px",
+                  height: "300px",
+                  position: "relative",
+                  top: "50%",
+                  left: "50%",
+                  maxWidth: "100%",
+                  transform:" translate(-50%, -0%)",
+                },
+              } as React.HTMLProps<HTMLImageElement>,
+            },
+          }}>{content}</ MuiMarkdown>
       </Paper>
   )
 }

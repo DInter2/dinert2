@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Drawer, List, ListItem, ListItemText } from '@mui/material';
-import { drawerWidth } from '@/Components/consts/drawerWidth';
+import { drawerWidth } from '../../../consts/drawerWidth';
 
 
 function MuiDrawer() {

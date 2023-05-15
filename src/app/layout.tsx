@@ -1,12 +1,12 @@
 import { RootFolderDto } from './types/RootFolder'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import MainContent from '../Components/layout/content/MainContent'
-import Footer from '../Components/layout/footer/Footer'
-import MuiThemeClient from '../Components/client/clienteContext/Context.Client'
-import DrawerServer from '../Components/layout/drawer/DrawerServer'
-import AppBarHeader from '@/Components/layout/header/AppBarHeader'
-import ResponsiveDrawer from '@/Components/layout/drawer/ResponsiveDrawer'
+import MainContent from './Components/layout/content/MainContent'
+import Footer from './Components/layout/footer/Footer'
+import MuiThemeClient from './Components/client/clienteContext/Context.Client'
+import DrawerServer from './Components/layout/drawer/DrawerServer'
+import AppBarHeader from './Components/layout/header/AppBarHeader'
+import ResponsiveDrawer from './Components/layout/drawer/ResponsiveDrawer'
 
 const inter = Inter({ subsets: ['latin'] })
 

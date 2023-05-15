@@ -2,7 +2,7 @@
 import React, { ReactNode, useState } from 'react'
 import TayColapse from '../../widgets/TayColapse';
 import { useRouter } from 'next/navigation';
-import { useSidebar } from '@/Components/client/sidebar/Sidebar.Context';
+import { useSidebar } from '../../client/sidebar/Sidebar.Context';
 import { useMediaQuery, useTheme } from '@mui/material';
 
 const DrawerClient = ({ title, children, id }: { title: string, id: string, children: ReactNode }) => {
