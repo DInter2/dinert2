@@ -16,8 +16,8 @@ export const metadata = {
 }
 async function getMobileMenus() :Promise<RootFolderDto>{
   const res = await fetch(
-    `https://script.google.com/macros/s/AKfycbzZEIm4IKP3SHz6A0hf6y7gvVELqZiGutV5_Hzy9PDBHwY6F3yZEvkjSO0BvboVDfXjLQ/exec?folderId=1S0xfEFx6JRZj1ldN2won-SpXZC7QBQ17`,
-    // {cache: "no-cache"}
+    `https://script.google.com/macros/s/AKfycbysxzOOYjczLr8B_zYj071CBAk9bwYSQ81LlaZ3LdCadi7uMPI_ruKLmC1Jfg0FSaTTjg/exec?folderId=1S0xfEFx6JRZj1ldN2won-SpXZC7QBQ17`,
+    {cache: "no-cache"}
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');

@@ -14,7 +14,6 @@ export function FileCard({file}:{file:FileDto}){
             alt={file.name}
             width={500}
             height={500}
-            layout="responsive"
             className="rounded-md"
           />
         </div>
