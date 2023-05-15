@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import DrawerClient from './DrawerClient';
 import { Folder } from '@/app/types/Folder';

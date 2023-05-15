@@ -1,5 +1,5 @@
+'use client'
 import { DateBr } from "@/app/core/dateConvereter"
-import { FileIcon } from "./fileIcon"
 import { FileDto } from "@/app/types/File"
 import Link from "next/link"
 import Image from "next/image"
