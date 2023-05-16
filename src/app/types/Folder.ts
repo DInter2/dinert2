@@ -1,6 +1,10 @@
-export interface Folder{
+import { FileDto } from "./File";
+import { FolderPath } from "./FolderPath";
+export interface FolderDto{
   id: string,
   name: string,
   description: string,
-  folders: Folder[]
+  folders: FolderDto[],
+  path: FolderPath,
+  files: FileDto[]
 }

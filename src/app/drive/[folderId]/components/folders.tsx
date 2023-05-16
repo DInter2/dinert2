@@ -1,25 +1,17 @@
-import { Folder } from "@/app/types/Folder";
+import { FolderDto } from "@/app/types/Folder";
 import { FolderCard } from "../../components/folder_card";
 import { FileCard } from "./files/filesCards";
-import { FileDto } from "@/app/types/File";
 
-interface RootFolderDto{
-  folderName: string,
-  folders: Folder[],
-  files: FileDto[]
-}
-
-
-export function Folders({rootFolderId}: {rootFolderId: RootFolderDto}) {
+export function Folders({folderDto}: {folderDto: FolderDto}) {
 
   return (
     <>
-      {rootFolderId.folders.sort(function(a,b): number{
+      {folderDto.folders.sort(function(a,b): number{
         return a.name.localeCompare(b.name)
       }).map((folder)=>{
         return <FolderCard key={folder.id} folder={folder} />
       })}
-      {rootFolderId.files.map((file) => <FileCard key={file.id} file={file}/>)}
+      {folderDto.files.map((file) => <FileCard key={file.id} file={file}/>)}
     </>
   )
 }

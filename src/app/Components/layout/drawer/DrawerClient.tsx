@@ -3,9 +3,9 @@ import React, { ReactNode, useState } from 'react'
 import TayColapse from '../../widgets/TayColapse';
 import { useRouter } from 'next/navigation';
 import { useSidebar } from '../../client/sidebar/Sidebar.Context';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Collapse, useMediaQuery, useTheme } from '@mui/material';
 import { selectMenu } from './menus/selectMenusIcon';
-const DrawerClient = ({ index, title, children, id }: { index: number, title: string, id: string, children: ReactNode }) => {
+const DrawerClient = ({ index, title, children, id, link }: {link: boolean, index: number, title: string, id: string, children: ReactNode }) => {
   const [expanded, setExpanded] = useState(false);
   const { isOpen, toggleSidebar } = useSidebar();
   const router = useRouter();
@@ -17,7 +17,10 @@ const DrawerClient = ({ index, title, children, id }: { index: number, title: st
     }
     router.push(title === "INÍCIO"? "/" :`/${title.toLowerCase()}/${id}`)
   }
-  const icons = selectMenu({index})
+  let icons!: JSX.Element;
+  if(!link){
+    icons = selectMenu({index})
+  }
   return (
     <div className=" my-1 mx-2 box-border">
       <button
@@ -42,9 +45,9 @@ const DrawerClient = ({ index, title, children, id }: { index: number, title: st
           />
         </svg>: null}
       </button>
-      <TayColapse isOpen={expanded} >
+      <Collapse in={expanded} timeout="auto" unmountOnExit >
         {expanded && children}
-      </TayColapse>
+      </Collapse>
     </div>
   );
 }

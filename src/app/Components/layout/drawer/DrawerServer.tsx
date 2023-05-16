@@ -1,15 +1,14 @@
 'use client'
 import React from 'react'
 import DrawerClient from './DrawerClient';
-import { Folder } from '@/app/types/Folder';
+import { FolderDto } from '@/app/types/Folder';
 import DrawerSubMenu from './DrawerSubMenu.Client';
 
- const DrawerServer = ({data}: {data: Folder[]})  => {
+ const DrawerServer = ({data, link}: {data: FolderDto[], link: boolean})  => {
   return (
     <div className="container mx-auto pt-4">
-
       {data.map((folder, index) => (
-        <DrawerClient index={index} key={folder.id} title={folder.name.split("_")[1]} id={folder.id}>
+        <DrawerClient link={link} index={index} key={folder.id} title={folder.name.split("_")[1]} id={folder.id}>
           {folder.folders.length!! && folder.folders.map((folder)=>
             <DrawerSubMenu key={folder.id} {...{
             id: folder.id,
