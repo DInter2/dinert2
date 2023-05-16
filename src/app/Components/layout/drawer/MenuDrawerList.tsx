@@ -1,6 +1,7 @@
 'use client'
 
-import { Folder } from '@/app/types/Folder';
+import { FolderDto } from '@/app/types/Folder';
+import { FolderPath } from '@/app/types/FolderPath';
 import { Collapse, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -13,7 +14,7 @@ type OpenProps = {
 
 type MenuProps = {
   tite: string
-  subMenus: Folder[]
+  subMenus: FolderDto[]
   router: string
   icon: JSX.Element
 }
@@ -38,8 +39,10 @@ const MenuDrawerList = () => {
         description: "description",
         id: "id",
         name: "name",
-        folders: []
-      }] as Folder[]).map((folder, i)=>{
+        folders: [],
+        files: [],
+        path: {} as FolderPath
+      }] as FolderDto[]).map((folder, i)=>{
     return {
       tite: folder.name.split("_")[1],
       subMenus: folder.folders,

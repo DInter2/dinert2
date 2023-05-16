@@ -1,13 +1,13 @@
 'use client'
 import { useSidebar } from "@/app/Components/client/sidebar/Sidebar.Context";
-import { Folder } from "@/app/types/Folder";
+import { FolderDto } from "@/app/types/Folder";
 import { List, ListItemButton, ListItemText, Typography } from "@mui/material"
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 type Props = {
   onClick: React.MouseEventHandler<HTMLAnchorElement>
-  menu: Folder;
+  menu: FolderDto;
 }
 const DiretoryDrawer = ({ onClick, menu}: Props) =>  {
   const { isOpen, toggleSidebar } = useSidebar();

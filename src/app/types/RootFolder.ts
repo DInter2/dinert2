@@ -1,9 +1,9 @@
 import { FileDto } from "./File";
-import { Folder } from "./Folder";
+import { FolderDto } from "./Folder";
 
 export interface RootFolderDto{
   description: string,
   folderName: string,
-  folders: Folder[],
+  folders: FolderDto[],
   files: FileDto[]
 }

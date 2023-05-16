@@ -1,9 +1,9 @@
 import { Suspense } from "react"
 import { MobileMemu } from "./mobileMenu"
 import { MobileMenuContent } from "./mobileMenuContent"
-import { Folder } from "@/app/types/Folder";
+import { FolderDto } from "@/app/types/Folder";
 
-export const Nav = ({menus}:{menus: Folder[]}) => {
+export const Nav = ({menus}:{menus: FolderDto[]}) => {
   return (
     <nav>
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-gray-800">

@@ -1,5 +1,5 @@
 'use client'
-import { Folder } from '@/app/types/Folder';
+import { FolderDto } from '@/app/types/Folder';
 import { ListItem, ListItemButton, ListItemText, Collapse, Box, Typography, Stack, Skeleton } from '@mui/material';
 import { useState } from 'react';
 import { AiOutlineRight, AiOutlineDown } from 'react-icons/ai'
@@ -7,13 +7,13 @@ export type DrawerProps = {
   open: boolean;
   onClose: () => void;
   isOparation: boolean;
-  folders: Folder[]
+  folders: FolderDto[]
 };
 type OpenProps = {
   open: boolean;
   key: string;
 }
-export default function MenuDrawer({  folders }: {folders: Folder[]}) {
+export default function MenuDrawer({  folders }: {folders: FolderDto[]}) {
 
   const [openMenu, setOpenMenu] = useState<OpenProps>({key:"@", open: false});
 

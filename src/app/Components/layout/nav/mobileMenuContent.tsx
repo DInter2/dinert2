@@ -1,7 +1,7 @@
-import { Folder } from "@/app/types/Folder";
+import { FolderDto } from "@/app/types/Folder";
 import BasicMenu from "../menu/MenuDrop";
 
-export const MobileMenuContent = ({menus}: {menus: Folder[]}) => {
+export const MobileMenuContent = ({menus}: {menus: FolderDto[]}) => {
   return (
     <div className="ml-10 flex items-baseline space-x-4">
       {menus.sort(function (str1, str2) {

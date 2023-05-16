@@ -3,11 +3,11 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { Folder } from '@/app/types/Folder';
+import { FolderDto } from '@/app/types/Folder';
 import { childName } from '@/app/core/splitName';
 import { useRouter } from 'next/navigation';
 
-export default function BasicMenu({menu}: {menu: Folder}) {
+export default function BasicMenu({menu}: {menu: FolderDto}) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
