@@ -42,9 +42,10 @@ const BreadcrumbsClient = ({ folderPath }: {folderPath: FolderPath}) => {
   breadcrumbs.shift()
 
   return (
-    <Box>
-     <Stack spacing={2} paddingBottom={2}>
+    <Box >
+     <Stack spacing={2} paddingBottom={2} >
        <Breadcrumbs
+       sx={{overflow: "auto"}}
           separator={<GrFormNext fontSize="large" />}
           aria-label="breadcrumb"
         >
