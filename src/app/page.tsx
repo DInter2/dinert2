@@ -1,10 +1,8 @@
 import { RootFolderDto } from "../types/RootFolder";
-import { CardWidget } from "./Components/page/CardWidget"
-import LicksWrap from "./Components/page/LicksWrap";
+import { CardWidget } from "./Components/views/CardWidget"
+import LicksWrap from "./Components/views/LicksWrap";
 import { ClientMarkdown } from "./[maneName]/[menuId]/components/clientMarkdown";
-import { Logo } from "./Components/layout/logo/Logo";
-import Mapper from "./Components/widgets/map/Map";
-import TitleInitialPage from "./Components/page/TitleInitialPage";
+import TitleInitialPage from "./Components/views/TitleInitialPage";
 export interface Todo {
     userId: number,
     id: number,
@@ -26,7 +24,7 @@ export  default async function Home() {
   return (
     <div className="flex flex-col items-center justify-center ">
       <TitleInitialPage />
-      <Mapper />
+      {/* <Mapper /> */}
       <div className="h-10"/>
        <div>
           {folder.files.map((file)=>{

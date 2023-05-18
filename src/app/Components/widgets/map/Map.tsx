@@ -33,7 +33,7 @@ function LocationMarker() {
 const Mapper = () => {
 
   var myIcon = leaflet.icon({
-    iconUrl: '/images/drawer.jpg',
+    iconUrl: '/images/logodinter2.png',
     iconSize: [50, 50],
     iconAnchor: [10, 50],
     popupAnchor: [-3, -76],

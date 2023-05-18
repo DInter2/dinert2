@@ -45,7 +45,6 @@ const BreadcrumbsClient = ({ folderPath }: {folderPath: FolderPath}) => {
     <Box >
      <Stack spacing={2} paddingBottom={2} >
        <Breadcrumbs
-       sx={{overflow: "auto"}}
           separator={<GrFormNext fontSize="large" />}
           aria-label="breadcrumb"
         >

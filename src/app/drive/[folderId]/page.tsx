@@ -8,7 +8,7 @@ import { FolderDto } from "@/types/Folder";
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbyV1wE00nb0nqvtD2A0Lp4Gaxm1JNCy5mEzKkJC6zxgPduOD5SdZr7ziVK8tnoarjnR4g/exec?folderId=${folderId}`,
-      // {cache: "no-cache"}
+    { next: { revalidate: 60 } }
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');

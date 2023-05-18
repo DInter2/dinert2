@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import DrawerClient from './DrawerClient';
 import { FolderDto } from '@/types/Folder';

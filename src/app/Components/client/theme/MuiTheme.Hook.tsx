@@ -8,7 +8,7 @@ export function useAppTheme() {
   const [theme, setTheme] = useState(lightTheme);
   const [soredThemeMode, setStoredThemeMode] = useLocalStorage<
     "dark" | "light"
-  >("themeMode", "dark");
+  >("themeMode", "light");
   const toggleTheme = (isDarkTheme: boolean) => {
     const currentTheme = !isDarkTheme ? lightTheme : darkTheme;
     setTheme(currentTheme);
