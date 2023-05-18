@@ -1,4 +1,4 @@
-import { RootFolderDto } from './types/RootFolder'
+import { RootFolderDto } from '../types/RootFolder'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import MainContent from './Components/layout/content/MainContent'

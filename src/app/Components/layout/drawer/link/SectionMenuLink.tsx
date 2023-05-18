@@ -1,5 +1,5 @@
 'use client'
-import { FolderDto } from '@/app/types/Folder';
+import { FolderDto } from '@/types/Folder';
 import { Box, Divider, Typography } from '@mui/material';
 import React from 'react'
 import { MdFireTruck, MdAddToPhotos } from 'react-icons/md'

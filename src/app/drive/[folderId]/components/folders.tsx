@@ -1,4 +1,4 @@
-import { FolderDto } from "@/app/types/Folder";
+import { FolderDto } from "@/types/Folder";
 import { FolderCard } from "../../components/folder_card";
 import { FileCard } from "./files/filesCards";
 

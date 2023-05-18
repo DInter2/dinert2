@@ -1,6 +1,6 @@
 'use client'
 import { DateBr } from "@/app/core/dateConvereter"
-import { FileDto } from "@/app/types/File"
+import { FileDto } from "@/types/File"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -29,6 +29,7 @@ export function FileCard({file}:{file:FileDto}){
         </div> */}
         <div>
           <div className="text-slate-900 group-hover/File:text-white text-md font-semibold">{file.name.split("_").join(" ")}</div>
+          <div className="text-slate-600 group-hover/File:text-white text-xs font-semibold">{file.description}</div>
           <p className="group-hover/File:text-white text-slate-500"><DateBr date={file.updatedAt} /></p>
         </div>
       </div>

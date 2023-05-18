@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import DrawerClient from './DrawerClient';
-import { FolderDto } from '@/app/types/Folder';
+import { FolderDto } from '@/types/Folder';
 import DrawerSubMenu from './DrawerSubMenu.Client';
 
  const DrawerServer = ({data, link}: {data: FolderDto[], link: boolean})  => {

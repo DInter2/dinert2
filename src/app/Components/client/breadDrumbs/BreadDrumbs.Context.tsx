@@ -1,5 +1,5 @@
 'use client'
-import { FolderPath } from '@/app/types/FolderPath';
+import { FolderPath } from '@/types/FolderPath';
 import React, { useState, createContext, useContext, ReactNode } from 'react';
 
 

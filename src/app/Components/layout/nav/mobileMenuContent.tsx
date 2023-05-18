@@ -1,4 +1,4 @@
-import { FolderDto } from "@/app/types/Folder";
+import { FolderDto } from "@/types/Folder";
 import BasicMenu from "../menu/MenuDrop";
 
 export const MobileMenuContent = ({menus}: {menus: FolderDto[]}) => {

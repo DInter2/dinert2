@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import { Box } from '@mui/material';
 import  { GrFormNext } from 'react-icons/gr';
 import  { MdHome } from 'react-icons/md';
-import { FolderPath } from '@/app/types/FolderPath';
+import { FolderPath } from '@/types/FolderPath';
 
 const pathArrayFactory= (path: FolderPath): FolderPath[] => {
 

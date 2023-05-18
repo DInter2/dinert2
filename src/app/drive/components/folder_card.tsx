@@ -1,4 +1,4 @@
-import { FolderDto } from "@/app/types/Folder";
+import { FolderDto } from "@/types/Folder";
 import Link from "next/link";
 import { FcFolder } from "react-icons/fc"
 

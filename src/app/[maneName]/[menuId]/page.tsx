@@ -1,5 +1,5 @@
 import { Folders,  } from "@/app/drive/[folderId]/components/folders";
-import { RootFolderDto } from "@/app/types/RootFolder";
+import { RootFolderDto } from "@/types/RootFolder";
 import Markdown from "./components/Markdown";
 import { ClientMarkdown } from "./components/clientMarkdown";
 
@@ -19,8 +19,8 @@ export interface Folder{
 
 async function getDataById(menuId: string): Promise<RootFolderDto> {
   const res = await fetch(
-    `https://script.google.com/macros/s/AKfycbz00VKAR1si6n1ympOSHJugZPvBXOssUSNgX8uvRpWLOsWVMwXZGouPxzQhpv37ji6_Sw/exec?folderId=${menuId}`,
-    // { next: { revalidate: 10 } }
+    `https://script.google.com/macros/s/AKfycbzmbVNXKc5WcYOvW-buSMoq-o5On_5rZbMva9ZVrtPBkT7NaX-ZxLkIpH2QKkmsvs_MCw/exec?folderId=${menuId}`,
+    { next: { revalidate: 10 } }
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');

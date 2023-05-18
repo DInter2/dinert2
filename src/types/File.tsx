@@ -5,5 +5,6 @@ export interface FileDto{
   url: string,
   thumbnail: string,
   content: string,
-  updatedAt: string
+  updatedAt: string,
+  description: string
 }

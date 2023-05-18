@@ -3,7 +3,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { FolderDto } from '@/app/types/Folder';
+import { FolderDto } from '@/types/Folder';
 import { childName } from '@/app/core/splitName';
 import { useRouter } from 'next/navigation';
 

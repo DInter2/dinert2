@@ -2,3 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS personalizado para estilizar a tabela */
+@layer components  {
+  table {
+    @apply w-full bg-white border-collapse border table-auto  border-transparent rounded-lg shadow-md;
+  }
+  thead {
+    @apply bg-orange-400;
+  }
+  thead th {
+    @apply px-4 py-2 border-transparent;
+  }
+  th {
+    @apply font-semibold text-left px-6 py-4 border;
+  }
+  td {
+    @apply text-sm  px-4 py-2 border border-transparent;
+  }
+  tbody tr:nth-child(even) {
+    @apply bg-gray-100;
+  }
+}

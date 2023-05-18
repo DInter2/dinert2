@@ -1,4 +1,4 @@
-import { FileDto } from '@/app/types/File';
+import { FileDto } from '@/types/File';
 import Image from 'next/image';
 
 export default function Thumbnail({ file, blobUrl }: { file: FileDto, blobUrl: string }) {

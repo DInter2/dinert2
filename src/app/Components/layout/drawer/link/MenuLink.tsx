@@ -2,7 +2,7 @@
 import { Box, Collapse, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import React, { useState } from 'react'
 import { useSidebar } from "@/app/Components/client/sidebar/Sidebar.Context";
-import { FolderDto } from "@/app/types/Folder";
+import { FolderDto } from "@/types/Folder";
 import { useRouter } from "next/navigation";
 type OpenProps = {
   open: boolean;

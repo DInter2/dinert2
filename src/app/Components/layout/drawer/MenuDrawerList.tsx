@@ -1,7 +1,7 @@
 'use client'
 
-import { FolderDto } from '@/app/types/Folder';
-import { FolderPath } from '@/app/types/FolderPath';
+import { FolderDto } from '@/types/Folder';
+import { FolderPath } from '@/types/FolderPath';
 import { Collapse, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useState } from 'react';

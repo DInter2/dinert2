@@ -1,5 +1,5 @@
 'use client'
-import { FolderDto } from '@/app/types/Folder';
+import { FolderDto } from '@/types/Folder';
 import { ListItem, ListItemButton, ListItemText, Collapse, Box, Typography, Stack, Skeleton } from '@mui/material';
 import { useState } from 'react';
 import { AiOutlineRight, AiOutlineDown } from 'react-icons/ai'

@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import { MobileMemu } from "./mobileMenu"
 import { MobileMenuContent } from "./mobileMenuContent"
-import { FolderDto } from "@/app/types/Folder";
+import { FolderDto } from "@/types/Folder";
 
 export const Nav = ({menus}:{menus: FolderDto[]}) => {
   return (

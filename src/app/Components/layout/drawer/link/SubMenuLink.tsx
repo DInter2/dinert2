@@ -1,6 +1,6 @@
 'use client'
 import { useSidebar } from "@/app/Components/client/sidebar/Sidebar.Context";
-import { FolderDto } from "@/app/types/Folder";
+import { FolderDto } from "@/types/Folder";
 import { List, ListItemButton, ListItemText, Typography } from "@mui/material"
 import Link from "next/link";
 import { useRouter } from "next/router";
