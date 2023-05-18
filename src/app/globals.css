@@ -22,4 +22,8 @@
   tbody tr:nth-child(even) {
     @apply bg-gray-100;
   }
+  img {
+    @apply mx-auto block;
+  }
 }
+

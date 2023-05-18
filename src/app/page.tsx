@@ -23,7 +23,7 @@ export  default async function Home() {
   const folder = await getDriveLinks()
   return (
     <div className="flex flex-col items-center justify-center ">
-      <TitleInitialPage />
+      {/* <TitleInitialPage /> */}
       {/* <Mapper /> */}
       <div className="h-10"/>
        <div>
@@ -32,7 +32,7 @@ export  default async function Home() {
             })}
         </div>
         <div className="h-10"/>
-        <LicksWrap>
+        {/* <LicksWrap>
           <div className="flex-col items-center justify-center bg-orange-400 p-8 rounded-md">
             <h1 className="text-4xl text-white font-bold  mb-3">Links rápidos</h1>
             <h1 className="text-2xl text-white mb-12">{folder.description}</h1>
@@ -40,7 +40,7 @@ export  default async function Home() {
               {folder.folders.map((card)=><CardWidget key={card.id} {...{description: card.description, title: card.name, id: card.id}} />)}
             </div>
           </div>
-        </LicksWrap>
+        </LicksWrap> */}
     </div>
   )
 }
