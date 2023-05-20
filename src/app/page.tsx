@@ -3,6 +3,7 @@ import { CardWidget } from "./Components/views/CardWidget"
 import LicksWrap from "./Components/views/LicksWrap";
 import { ClientMarkdown } from "./[maneName]/[menuId]/components/clientMarkdown";
 import TitleInitialPage from "./Components/views/TitleInitialPage";
+import Image from "next/image";
 export interface Todo {
     userId: number,
     id: number,
@@ -24,6 +25,7 @@ export  default async function Home() {
   return (
     <div className="flex flex-col items-center justify-center ">
       {/* <TitleInitialPage /> */}
+
       {/* <Mapper /> */}
       <div className="h-10"/>
        <div>
