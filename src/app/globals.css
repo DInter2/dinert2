@@ -4,29 +4,38 @@
 
 /* CSS personalizado para estilizar a tabela */
 @layer components  {
+  blockquote {
+    @apply border-l-4 pl-4 border-orange-500 bg-slate-200 rounded-sm
+  }
+  ul {
+    @apply bg-gray-100 p-4 w-full rounded-md shadow divide-y divide-gray-300 list-outside hover:list-inside
+  }
+  li{
+    @apply text-gray-800 break-words
+  }
   h2 {
     @apply text-4xl py-6 text-center
   }
   table {
-    @apply w-full bg-white border-collapse border table-auto  border-transparent rounded-lg shadow-md;
+    @apply  border-collapse border table-auto  border-transparent rounded-lg shadow-md w-max mb-6;
   }
   thead {
-    @apply bg-orange-400 border-transparent;
+    @apply bg-orange-400 border-transparent break-words;
   }
   thead th {
-    @apply px-4 py-2 border-transparent;
+    @apply px-4 py-2 border-transparent ;
   }
   th {
-    @apply font-semibold text-left px-6 py-4 border;
+    @apply font-semibold text-left px-6 py-4 border break-words ;
   }
   td {
     @apply text-sm  px-4 py-2 border border-transparent;
-  }
+    }
   tbody tr:nth-child(even) {
-    @apply bg-gray-100;
+    @apply bg-orange-100;
   }
   img {
-    @apply mx-auto block max-w-full p-2;
+    @apply mx-auto block max-w-full p-2 rounded-sm;
   }
 }
 

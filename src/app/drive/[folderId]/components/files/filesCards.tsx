@@ -18,7 +18,7 @@ export function FileCard({file}:{file:FileDto}){
           alt="Picture of the author"
         />
         </div>
-        <h3 className="group-hover/File:text-white text-base font-bold text-gray-800 mb-2">{file.name}</h3>
+        <h3 className="group-hover/File:text-white text-base font-bold text-gray-800 mb-2 break-words">{file.name}</h3>
         <p className="group-hover/File:text-white text-slate-500"><DateBr date={file.updatedAt} /></p>
       </div>
       </Link>

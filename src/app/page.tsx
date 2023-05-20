@@ -1,5 +1,6 @@
 import { RootFolderDto } from "../types/RootFolder";
 import { ClientMarkdown } from "./[maneName]/[menuId]/components/clientMarkdown";
+import MarkdownView from "react-showdown";
 
 export interface Todo {
     userId: number,
@@ -10,7 +11,7 @@ export interface Todo {
 async function getDriveLinks() :Promise<RootFolderDto>{
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbyRJmaLH_1QMotqUeKmW7CrKyBoW9WZdWZn_ptojiK1Z6JS6ko4hVXwUaNA51oMdHyf4w/exec?folderId=1tCl6a-X1Uct25pxWZpBlnQo44Qpjis4N`,
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 6 } }
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -24,7 +25,13 @@ export  default async function Home() {
     <div className="flex flex-col items-center justify-center ">
        <div>
           {folder.files.map((file)=>{
-              return <ClientMarkdown key={file.id} text={file.content}/>
+              return <ClientMarkdown key={file.id}>
+                        <MarkdownView
+                          className="xl:prose-2xl xs:prose-xl max-w-full"
+                          markdown={file.content}
+                          options={{ tables: true, emoji: true }}
+                        />
+              </ClientMarkdown>
             })}
         </div>
         <div className="h-10"/>

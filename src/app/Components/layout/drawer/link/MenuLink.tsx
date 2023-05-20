@@ -28,7 +28,7 @@ const MenuLink = ({ folder }: {folder: FolderDto[]}) => {
               >
                 <ListItem  disablePadding >
                   <ListItemText>
-                    <Typography variant="subtitle2"  display="block">
+                    <Typography variant="subtitle2"  display="block" color="white">
                       {menu.name.split("-")[1]}
                     </Typography>
                   </ListItemText>

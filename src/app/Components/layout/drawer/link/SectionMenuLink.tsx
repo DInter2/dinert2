@@ -36,7 +36,7 @@ const section = index > 1 ? sections(1) : sections(index)
               p: 1,
               }}>
                 {section.icon}
-              <Typography variant="subtitle1"  display="block" marginLeft={section.icon!!? 2 : 0}>
+              <Typography variant="subtitle1"  color="white" display="block" marginLeft={section.icon!!? 2 : 0}>
                 {section.title}
               </Typography>
             </Box>

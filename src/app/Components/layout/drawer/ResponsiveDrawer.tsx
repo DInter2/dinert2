@@ -41,6 +41,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
            },
             "& .MuiDrawer-paper": {
               height: `calc(100vh)`,
+              minHeight: `calc(100vh)`,
               boxSizing: "border-box",
               width: drawerWidth,
               pb: 6,
@@ -56,7 +57,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
                 left: 0,
                 top: 0,
                 width: drawerWidth,
-                height: `calc(100vh)`,
+                minHeight: `calc(100vh)`,
                 zIndex: 0,
                 backgroundRepeat: "no-repeat",
                 pb: 6,

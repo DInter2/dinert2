@@ -42,24 +42,21 @@ const BreadcrumbsClient = ({ folderPath }: {folderPath: FolderPath}) => {
   breadcrumbs.shift()
 
   return (
-    <Box >
-     <Stack spacing={2} paddingBottom={2} >
-       <Breadcrumbs
-          separator={<GrFormNext fontSize="large" />}
-          aria-label="breadcrumb"
-        >
-       <Link underline="hover" key="1" color="inherit" href="/" >
-          <Box display="flex" justifyContent="center" alignItems="center" >
-          <MdHome className='pb-2' size={32}/>
-            <Typography key="@" color="text.primary" sx={{pl: 0.4}}>
-              INÍCIO
-            </Typography>
-          </Box>
-        </Link>
-          {breadcrumbs.map((path)=><BreadcrumbsWidget key={path.id} path={path} />) }
-        </Breadcrumbs>
-      </Stack>
-    </Box>
+    <Breadcrumbs
+      className="overflow-x-auto whitespace-nowrap max-w-full"
+      separator={<GrFormNext fontSize="large" />}
+      aria-label="breadcrumb"
+    >
+    <Link underline="hover" key="1" color="inherit" href="/" >
+      <Box display="flex" justifyContent="center" alignItems="center" >
+      <MdHome className='pb-2' size={32}/>
+        <Typography key="@" color="text.primary" sx={{pl: 0.4}}>
+          INÍCIO
+        </Typography>
+      </Box>
+    </Link>
+      {breadcrumbs.map((path)=><BreadcrumbsWidget key={path.id} path={path} />) }
+    </Breadcrumbs>
   );
 }
 
