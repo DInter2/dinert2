@@ -4,6 +4,9 @@
 
 /* CSS personalizado para estilizar a tabela */
 @layer components  {
+  h2 {
+    @apply text-4xl py-6 text-center
+  }
   table {
     @apply w-full bg-white border-collapse border table-auto  border-transparent rounded-lg shadow-md;
   }
@@ -23,7 +26,7 @@
     @apply bg-gray-100;
   }
   img {
-    @apply mx-auto block;
+    @apply mx-auto block max-w-full p-2;
   }
 }
 

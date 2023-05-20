@@ -1,9 +1,6 @@
 import { RootFolderDto } from "../types/RootFolder";
-import { CardWidget } from "./Components/views/CardWidget"
-import LicksWrap from "./Components/views/LicksWrap";
 import { ClientMarkdown } from "./[maneName]/[menuId]/components/clientMarkdown";
-import TitleInitialPage from "./Components/views/TitleInitialPage";
-import Image from "next/image";
+
 export interface Todo {
     userId: number,
     id: number,
@@ -22,12 +19,9 @@ async function getDriveLinks() :Promise<RootFolderDto>{
 }
 export  default async function Home() {
   const folder = await getDriveLinks()
+
   return (
     <div className="flex flex-col items-center justify-center ">
-      {/* <TitleInitialPage /> */}
-
-      {/* <Mapper /> */}
-      <div className="h-10"/>
        <div>
           {folder.files.map((file)=>{
               return <ClientMarkdown key={file.id} text={file.content}/>

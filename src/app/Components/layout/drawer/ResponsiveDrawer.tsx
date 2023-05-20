@@ -3,6 +3,7 @@ import {
   Box,
   Divider,
   Drawer,
+  IconButton,
   Toolbar,
 } from "@mui/material";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
@@ -11,6 +12,7 @@ import { drawerWidth } from "../../consts/drawerWidth";
 import { Logo } from "../logo/Logo";
 import { ReactNode } from "react";
 import { useSidebar } from "../../client/sidebar/Sidebar.Context";
+import { MdClose } from "react-icons/md"
 
 
 type ResponsiveDrawerProps = {
@@ -24,7 +26,8 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
       <Box
         position="absolute"
         component="nav"
-        sx={{ width: { sm: 100}, flexShrink: { sm:0 }}}
+
+        sx={{ width: { sm: "90%"}, flexShrink: { sm:0 }}}
       >
         <Drawer
           style={{width: drawerWidth,}}
@@ -37,9 +40,10 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
             lg: "none",
            },
             "& .MuiDrawer-paper": {
-              height: `calc(98vh)`,
+              height: `calc(100vh)`,
               boxSizing: "border-box",
               width: drawerWidth,
+              pb: 6,
               "&:before":{
                 backgroundPosition: 'center center',
                 backgroundSize: 'cover',
@@ -52,15 +56,19 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
                 left: 0,
                 top: 0,
                 width: drawerWidth,
-                height: `calc(98vh)`,
+                height: `calc(100vh)`,
                 zIndex: 0,
                 backgroundRepeat: "no-repeat",
+                pb: 6,
               }
             },
           }}
         >
-          <Toolbar >
+          <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between" }} >
             <Logo  />
+            <IconButton onClick={toggleSidebar} >
+              <MdClose />
+            </IconButton>
           </Toolbar>
           <Divider color="white"/>
           {/* <MenuDrawerList /> */}
@@ -81,6 +89,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               m:"1vh",
               boxSizing: "border-box",
               width: drawerWidth,
+              pb: 6,
               // zIndex: 1,
               "&:before":{
                 backgroundPosition: 'center center',
@@ -99,6 +108,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
                 height: `calc(98vh)`,
                 zIndex: 0,
                 backgroundRepeat: "no-repeat",
+                pb: 6,
               }
 
               // backgroundColor: "color.primary",
