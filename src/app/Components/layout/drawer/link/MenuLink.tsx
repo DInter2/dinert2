@@ -14,7 +14,9 @@ const MenuLink = ({ folder }: {folder: FolderDto[]}) => {
   const router = useRouter();
   const handleOpenMenu = (id: string)=>{
     router.push(`/drive/${id}`)
-    toggleSidebar()
+    if(isOpen){
+      toggleSidebar()
+    }
   }
 
   return (

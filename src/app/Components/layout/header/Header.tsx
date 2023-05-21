@@ -13,7 +13,7 @@ export const Header = ()  => {
   const { isOpen, toggleSidebar } = useSidebar();
   const [ isSearch, setIssearch] = useState(false);
   return (
-    <Toolbar  variant="dense">
+    <Toolbar  variant="regular">
       <IconButton
         size="small"
         edge="start"

@@ -34,10 +34,12 @@ const BreadcrumbsWidget = ({path}: {path: FolderPath}) => {
         </Link>
   )
 }
-const BreadcrumbsClient = ({ folderPath }: {folderPath: FolderPath}) => {
+const BreadcrumbsClient = ({ folderPath }: {folderPath?: FolderPath}) => {
 
-
-  const breadcrumbs = pathArrayFactory(folderPath).reverse()
+  if(folderPath === undefined){
+    return <div />
+  }
+  const breadcrumbs = pathArrayFactory(folderPath!).reverse()
   breadcrumbs.shift()
   breadcrumbs.shift()
 

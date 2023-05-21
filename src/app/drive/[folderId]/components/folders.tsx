@@ -1,6 +1,7 @@
 import { FolderDto } from "@/types/Folder";
 import { FolderCard } from "../../components/folder_card";
 import { FileCard } from "./files/filesCards";
+import Thumbnail from "./files/ThumbnailsImage";
 
 export function Folders({folderDto}: {folderDto: FolderDto}) {
 
@@ -11,7 +12,7 @@ export function Folders({folderDto}: {folderDto: FolderDto}) {
       }).map((folder)=>{
         return <FolderCard key={folder.id} folder={folder} />
       })}
-      {folderDto.files.map((file) => <FileCard key={file.id} file={file}/>)}
+      {folderDto.files.map((file) => <Thumbnail key={file.id} file={file}/>)}
     </>
   )
 }

@@ -1,10 +1,9 @@
 import BreadcrumbsClient from '@/app/Components/layout/breadcrumbs/BreadcrumbsClient';
 import React, { ReactNode } from 'react';
 
-const Folder = ({ children, title, breadDrumbs}: {children: ReactNode, title: string, breadDrumbs: ReactNode }) => {
+const Folder = ({ children, title }: {children: ReactNode, title: string }) => {
   return (
     <>
-      { breadDrumbs }
       <div className="space-y-4">
         <div className="bg-orange-500 m-2 mt-2 mb-[-3rem] sticky shadow-lg rounded-lg">
           <h2 className="text-white text-lg font-bold p-2">{title}</h2>

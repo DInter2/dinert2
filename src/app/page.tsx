@@ -27,7 +27,7 @@ export  default async function Home() {
           {folder.files.map((file)=>{
               return <ClientMarkdown key={file.id}>
                         <MarkdownView
-                          className="xl:prose-2xl xs:prose-xl max-w-full"
+                          className="xl:prose-2xl xs:prose-xl max-w-full p-2"
                           markdown={file.content}
                           options={{ tables: true, emoji: true }}
                         />

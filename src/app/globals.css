@@ -8,13 +8,16 @@
     @apply border-l-4 pl-4 border-orange-500 bg-slate-200 rounded-sm
   }
   ul {
-    @apply bg-gray-100 p-4 w-full rounded-md shadow divide-y divide-gray-300 list-outside hover:list-inside
+    @apply bg-gray-100 p-4 my-4 w-full rounded-md shadow divide-y divide-gray-300 list-outside hover:list-inside
   }
   li{
-    @apply text-gray-800 break-words
+    @apply 2xl:text-2xl xl:text-2xl md:text-xl sm:text-sm
+  }
+  li span {
+    @apply text-gray-800 break-words text-3xl sm:text-4xl
   }
   h2 {
-    @apply text-4xl py-6 text-center
+    @apply text-4xl py-4 mt-4 text-center
   }
   table {
     @apply  border-collapse border table-auto  border-transparent rounded-lg shadow-md w-max mb-6;
@@ -35,7 +38,7 @@
     @apply bg-orange-100;
   }
   img {
-    @apply mx-auto block max-w-full p-2 rounded-sm;
+    @apply mx-auto rounded-sm;
   }
 }
 

@@ -7,13 +7,13 @@ export const Logo = () => (
   <Link
   href="/"
     style={{ textDecoration: "none", color: "inherit" }}>
-    <Box sx={{ display: 'flex', alignItems: 'center'}}>
+    <Box sx={{ display: 'flex', alignItems: 'center',}}>
       <Image
-      className="mr-2"
-         width={35}
-       src='https://www.intranet.bombeiros.pe.gov.br/portal/storage/get/file/11680'
+        className="mr-2 aspect-auto"
+         width={45}
+        src='https://www.intranet.bombeiros.pe.gov.br/portal/storage/get/file/11680'
         alt='logo'
-        height={35} />
+        height={45} />
       <Typography color="text.primary" component="h6" variant="h6" fontWeight="bold">DInter 2</Typography>
     </Box>
   </Link>

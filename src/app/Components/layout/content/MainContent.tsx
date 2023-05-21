@@ -1,13 +1,13 @@
 'use client'
-import { Container } from '@mui/system';
 import React from 'react';
 import { drawerWidth } from '../../consts/drawerWidth';
+import { Box } from '@mui/material';
 
 export default function MainContent({ children }: {children: React.ReactNode }) {
 
   return (
     <div className='flex-grow'>
-        <Container
+        <Box
           maxWidth="xl"
           sx={{
             color: "white",
@@ -15,7 +15,7 @@ export default function MainContent({ children }: {children: React.ReactNode }) 
             width: { lg: `calc(100% - ${drawerWidth}px)`, xs: "calc(100%)"},
           }}>
           {children}
-        </Container>
+        </Box>
     </div>
   )
 }
