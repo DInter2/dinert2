@@ -13,7 +13,7 @@ import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Compone
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbwCQVRjf7NKFBcm7LmWiOP6Qu0RLJd6IL_49qEjDcUugMFjQ-_jrESFi_tnF7cN2s_Elw/exec?folderId=${folderId}`,
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 6 } }
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -43,7 +43,7 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
     <BreadcrumbsClient folderPath={data.path} />
       {<ClientMarkdown >
         <MarkdownView
-          className="max-w-full overflow-x-auto scrollbar-thin"
+          className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full"
           markdown={data.page}
           options={{ tables: true, emoji: true, }}
           components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord, Content }}

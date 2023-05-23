@@ -10,11 +10,11 @@
   ul {
     @apply bg-gray-100 p-4 my-4 w-full rounded-md shadow divide-y divide-gray-300 list-outside hover:list-inside
   }
-  li{
-    @apply 2xl:text-2xl xl:text-2xl md:text-xl sm:text-sm
+  .markdown li{
+    @apply 2xl:text-2xl xl:text-2xl md:text-xl sm:text-sm p-2 py-4 hover:bg-slate-200 w-full
   }
   li span {
-    @apply text-gray-800 break-words text-3xl sm:text-4xl
+    @apply space-x-2
   }
   h2 {
     @apply text-4xl py-4 mt-4 text-center
