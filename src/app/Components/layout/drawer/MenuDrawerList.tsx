@@ -40,6 +40,7 @@ const MenuDrawerList = () => {
         id: "id",
         name: "name",
         folders: [],
+        page: "",
         files: [],
         path: {} as FolderPath
       }] as FolderDto[]).map((folder, i)=>{
