@@ -4,12 +4,15 @@ import BreadcrumbsClient from "@/app/Components/layout/breadcrumbs/BreadcrumbsCl
 import { FolderDto } from "@/types/Folder";
 import { FolderCard } from "../components/folder_card";
 import Thumbnail from "./components/files/ThumbnailsImage";
+import { ClientMarkdown } from "@/app/[maneName]/[menuId]/components/clientMarkdown";
+import MarkdownView from "react-showdown";
+import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Components/widgets/icons";
 
 
 
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
-    `https://script.google.com/macros/s/AKfycbyV1wE00nb0nqvtD2A0Lp4Gaxm1JNCy5mEzKkJC6zxgPduOD5SdZr7ziVK8tnoarjnR4g/exec?folderId=${folderId}`,
+    `https://script.google.com/macros/s/AKfycbwCQVRjf7NKFBcm7LmWiOP6Qu0RLJd6IL_49qEjDcUugMFjQ-_jrESFi_tnF7cN2s_Elw/exec?folderId=${folderId}`,
     { next: { revalidate: 60 } }
     );
   if (!res.ok) {
@@ -20,11 +23,10 @@ async function getDataById(folderId: string): Promise<FolderDto> {
 
 
 export default async  function DriveFolder({ params: { folderId }}: {params: {folderId: string}}) {
-  const data = await getDataById(folderId)
-  return (
+  const data = await getDataById(folderId);
+  const Content = () => (
     <>
-    <BreadcrumbsClient folderPath={data.path} />
-      {data.folders.length != 0 && <Folder title={data.name + " PASTAS"} >
+    {data.folders.length != 0 && <Folder title={data.name + " PASTAS"} >
       {data.folders.sort(function(a,b): number{
         return a.name.localeCompare(b.name)
       }).map((folder)=>{
@@ -34,6 +36,19 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
       {data.files.length != 0 && <Folder title={data.name + " ARQUIVOS"} >
         {data.files.map((file) => <Thumbnail key={file.id} file={file}/>)}
       </Folder>}
+    </>
+  )
+  return (
+    <>
+    <BreadcrumbsClient folderPath={data.path} />
+      {<ClientMarkdown >
+        <MarkdownView
+          className="max-w-full overflow-x-auto scrollbar-thin"
+          markdown={data.page}
+          options={{ tables: true, emoji: true, }}
+          components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord, Content }}
+          />
+      </ClientMarkdown>}
     </>
   )
 }

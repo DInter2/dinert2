@@ -1,10 +1,7 @@
-import { Folders,  } from "@/app/drive/[folderId]/components/folders";
-import { RootFolderDto } from "@/types/RootFolder";
-import Markdown from "./components/Markdown";
 import { ClientMarkdown } from "./components/clientMarkdown";
 import MarkdownView from "react-showdown";
 import { FolderDto } from "@/types/Folder";
-
+import { IconForm,  IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Components/widgets/icons";
 
 export interface Todo {
     userId: number,
@@ -33,18 +30,18 @@ async function getDataById(menuId: string): Promise<FolderDto> {
 
 export default async  function DriveFolder({ params: { menuId }}: {params: {menuId: string}}) {
   const data = await getDataById(menuId)
+
   return (
     <div className="max-w-full">
-      {data.files.map((file)=>{
-        return (
-          <ClientMarkdown key={file.id} >
+      {<ClientMarkdown >
             <MarkdownView
-              className="xl:prose-2xl xs:prose-xl max-w-full overflow-x-auto scrollbar-thin"
-              markdown={file.content}
-              options={{ tables: true, emoji: true }}
+              className="max-w-full overflow-x-auto scrollbar-thin"
+              markdown={data.page}
+              options={{ tables: true, emoji: true, }}
+              components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord }}
               />
-          </ClientMarkdown>)
-        })}
+
+          </ClientMarkdown>}
         {/* <Folders rootFolderId={data} /> */}
     </div>
   )

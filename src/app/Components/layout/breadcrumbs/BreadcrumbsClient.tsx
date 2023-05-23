@@ -45,7 +45,7 @@ const BreadcrumbsClient = ({ folderPath }: {folderPath?: FolderPath}) => {
 
   return (
     <Breadcrumbs
-      className="overflow-x-auto whitespace-nowrap max-w-full"
+      sx={{maxWidth: "100vw"}}
       separator={<GrFormNext fontSize="large" />}
       aria-label="breadcrumb"
     >
