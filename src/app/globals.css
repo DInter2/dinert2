@@ -11,13 +11,10 @@
     @apply bg-gray-100 p-4 my-4 w-full rounded-md shadow divide-y divide-gray-300 list-outside hover:list-inside
   }
   .markdown li{
-    @apply 2xl:text-2xl xl:text-2xl md:text-xl sm:text-sm p-2 py-4 hover:bg-slate-200 w-full
-  }
-  li span {
-    @apply space-x-2
+    @apply 2xl:text-xl xl:text-xl md:text-xl sm:text-sm p-2 py-4 hover:bg-slate-200 w-full
   }
   h2 {
-    @apply text-4xl py-4 mt-4 text-center
+    @apply text-4xl mt-8 text-center mb-4
   }
   table {
     @apply  mx-auto border-collapse border table-auto  border-transparent rounded-lg shadow-md w-max mb-6;
@@ -41,7 +38,7 @@
     @apply bg-orange-100;
   }
   img {
-    @apply mx-auto rounded-sm;
+    @apply mx-auto rounded-sm max-w-full max-h-full my-4;
   }
 }
 

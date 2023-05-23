@@ -6,7 +6,7 @@ import { FileDto } from '@/types/File';
 export default function Thumbnail({ file }: { file: FileDto }) {
 
   return (
-    <div className="group/File max-w-xs mx-auto bg-white hover:bg-orange-500 pt-1 shadow-md rounded-lg overflow-hidden duration-300 hover:-translate-y-1">
+    <div className="group/File max-w-xs mx-auto max-h-80 bg-white hover:bg-orange-500 pt-1 shadow-md rounded-lg overflow-hidden duration-300 hover:-translate-y-1">
       <div className="relative">
       <img
           className="max-w-full rounded-md group-hover/File:text-white text-gray-800 object-contain w-320 h-320"

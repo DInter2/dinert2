@@ -7,5 +7,5 @@ export interface FolderDto{
   folders: FolderDto[],
   path: FolderPath,
   files: FileDto[]
-  page: string
+  page: {content: string, name: string}[]
 }

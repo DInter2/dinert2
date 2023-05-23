@@ -28,7 +28,7 @@ const pathArrayFactory= (path: FolderPath): FolderPath[] => {
 const BreadcrumbsWidget = ({path}: {path: FolderPath}) => {
   return (
         <Link underline="hover" key={path.id} color="inherit" href={`/drive/${path.id}`} >
-          <Typography color="text.primary">
+          <Typography color="text.primary" sx={{pl: 0.4, fontSize: {lg: 14, md: 12, xs: 12}}}>
           {path.name.includes("_")? path.name.split("_")[1]: path.name.includes("-")? path.name.split("-")[1]: path.name}
           </Typography>
         </Link>
@@ -45,14 +45,14 @@ const BreadcrumbsClient = ({ folderPath }: {folderPath?: FolderPath}) => {
 
   return (
     <Breadcrumbs
-      sx={{maxWidth: "100vw"}}
+      sx={{maxWidth: "100vw", ml: 2, mb: 2}}
       separator={<GrFormNext fontSize="large" />}
       aria-label="breadcrumb"
     >
     <Link underline="hover" key="1" color="inherit" href="/" >
       <Box display="flex" justifyContent="center" alignItems="center" >
       <MdHome className='pb-2' size={32}/>
-        <Typography key="@" color="text.primary" sx={{pl: 0.4}}>
+        <Typography key="@" color="text.primary" sx={{pl: 0.4, fontSize: {lg: 14, md: 12, xs: 12}}}>
           INÍCIO
         </Typography>
       </Box>
