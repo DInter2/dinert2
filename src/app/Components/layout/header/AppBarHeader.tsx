@@ -19,6 +19,7 @@ const AppBarHeader = () => {
   return (
     <Box
     height={appBarHeight}
+    sx={{maxWidth: "98vw"}}
     >
       <AppBar
           elevation={scrollPosition === 0 ? 0: 1}

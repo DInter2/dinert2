@@ -14,7 +14,7 @@ export default function Footer(props: FooterProps) {
   const { title } = props;
 
   return (
-    <Box component="footer" sx={{ my: 4,pb: 8, display: 'flex', alignItems: "center", justifyContent: "center" }}>
+    <Box component="footer" sx={{ my:{xs: 4, sm: 8}, display: 'flex', alignItems: "center", justifyContent: "center" }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom  color="text.secondary"  >
           {title}

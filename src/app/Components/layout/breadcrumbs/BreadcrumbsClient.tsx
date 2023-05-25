@@ -1,8 +1,7 @@
-"use client"
-import Link from '@mui/material/Link';
 import  { GrFormNext } from 'react-icons/gr';
 import  { MdHome } from 'react-icons/md';
 import { FolderPath } from '@/types/FolderPath';
+import Link from 'next/link';
 
 const pathArrayFactory= (path: FolderPath): FolderPath[] => {
 
@@ -29,7 +28,7 @@ const BreadcrumbsClient = ({ folderPath }: {folderPath?: FolderPath}) => {
   breadcrumbs.shift()
 
 return (
-  <nav className="flex items-center px-2 overflow-x-auto mx-auto max-w-[98vw]">
+  <nav className="flex items-center px-[2vw] overflow-x-auto mx-auto max-w-[95vw]">
     <Link
       href={`/`}
       className="text-gray-500 hover:text-gray-700 transition-colors duration-300 no-underline flex items-center"
@@ -42,9 +41,9 @@ return (
         {item.name!! && <span  className="h-4 w-4"><GrFormNext className="h-4 w-4 text-gray-500" /></span>}
         <Link
           href={`/drive/${item.id}`}
-          className="text-gray-500 hover:text-gray-700 min-w-fit transition-colors duration-300 no-underline"
+          className="text-gray-500 hover:text-gray-700 transition-colors duration-300 whitespace-nowrap no-underline"
         >
-          {item.name.includes("-")? item.name.split("-")[1]: item.name.split("_")[1]}
+          {item.name.includes("-")? item.name.split("-")[1]: item.name.includes("-")? item.name.split("_")[1]: item.name}
         </Link>
       </div>
     ))}
