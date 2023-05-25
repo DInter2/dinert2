@@ -1,4 +1,5 @@
 'use client'
+import { IconSheet } from '@/app/Components/widgets/icons';
 import { DateBr } from '@/app/core/dateConvereter';
 /* eslint-disable @next/next/no-img-element */
 import { FileDto } from '@/types/File';
@@ -6,17 +7,17 @@ import { FileDto } from '@/types/File';
 export default function Thumbnail({ file }: { file: FileDto }) {
 
   return (
-    <div className="group/File max-w-xs mx-auto max-h-80 bg-white hover:bg-orange-500 pt-1 shadow-md rounded-lg overflow-hidden duration-300 hover:-translate-y-1">
+    <div className="group/File max-w-xs max-h-sm min-w-full min-h-full mx-auto bg-white hover:bg-orange-500 pt-1 shadow-md rounded-lg overflow-hidden duration-300 hover:-translate-y-1">
       <div className="relative">
       <img
-          className="max-w-full rounded-md group-hover/File:text-white text-gray-800 object-contain w-320 h-320"
+          className="max-w-full rounded-md bg-white text-gray-800 object-cover h-[200px] min-w-full"
           src={`https://lh3.google.com/u/0/d/${file.id}=s320-w320-h200-k-p`}
-          width={320}
-          height={320}
           alt={file.name}
-          onError={({ currentTarget }) => {
+          onError={({ currentTarget,  }) => {
+            console.log("error de imagem")
             currentTarget.onerror = null; // prevents looping
-            currentTarget.append();
+            currentTarget.src = 'https://www.intranet.bombeiros.pe.gov.br/portal/storage/get/file/11680';
+            currentTarget.classList.add("px-16")
           }}
         />
         <span className="absolute top-0 right-0 m-2 px-2 py-1 bg-black text-white text-xs font-bold rounded"><DateBr date={file.updatedAt} /></span>

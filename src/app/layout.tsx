@@ -51,7 +51,7 @@ export default async function RootLayout({
               {resp[1].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
             </ResponsiveDrawer>
           <MainContent >
-            <div className='min-h-screen min-w-max flex-1'>
+            <div className='min-h-screen min-w-max flex-1 mt-8'>
               { children }
             </div>
             <Footer description='Descrição' title='DInter 2'/>

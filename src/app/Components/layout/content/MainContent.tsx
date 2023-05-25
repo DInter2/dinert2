@@ -10,6 +10,8 @@ export default function MainContent({ children }: {children: React.ReactNode }) 
         <Box
           maxWidth="xl"
           sx={{
+            px: {sm: 2, xs: 0},
+            boxSizing: "border-box",
             color: "white",
             ml: { lg: `${drawerWidth}px`, xs:0 },
             width: { lg: `calc(100% - ${drawerWidth}px)`, xs: "calc(100%)"},
