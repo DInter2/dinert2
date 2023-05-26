@@ -18,7 +18,6 @@ export const metadata = {
 async function getDriveLinks() :Promise<RootFolderDto>{
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbyRJmaLH_1QMotqUeKmW7CrKyBoW9WZdWZn_ptojiK1Z6JS6ko4hVXwUaNA51oMdHyf4w/exec?folderId=1tCl6a-X1Uct25pxWZpBlnQo44Qpjis4N`,
-    { next: { revalidate: 60 } }
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -28,7 +27,6 @@ async function getDriveLinks() :Promise<RootFolderDto>{
 async function getMobileMenus() :Promise<RootFolderDto>{
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbysxzOOYjczLr8B_zYj071CBAk9bwYSQ81LlaZ3LdCadi7uMPI_ruKLmC1Jfg0FSaTTjg/exec?folderId=1S0xfEFx6JRZj1ldN2won-SpXZC7QBQ17`,
-    { next: { revalidate: 60 } }
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -40,7 +38,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const resp = await (await Promise.all([getMobileMenus(), getDriveLinks()]))
+  const resp = await Promise.all([getMobileMenus(), getDriveLinks()])
   return (
     <html lang="pt">
       <body className={inter.className}>
@@ -51,11 +49,9 @@ export default async function RootLayout({
               {resp[1].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
             </ResponsiveDrawer>
           <MainContent >
-            <div className='min-h-screen min-w-max flex-1 mt-4 sm:mt-8'>
-              { children }
-            </div>
-            <Footer description='Descrição' title='DInter 2'/>
+            { children }
           </MainContent>
+            <Footer description='Descrição' title='DInter 2'/>
         </ MuiThemeClient>
      </body>
     </html>

@@ -26,8 +26,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
       <Box
         position="absolute"
         component="nav"
-
-        sx={{ width: { sm: "90%"}, flexShrink: { sm:0 }}}
+        sx={{ flexShrink: { sm:0 }}}
       >
         <Drawer
           style={{width: drawerWidth,}}
@@ -36,8 +35,9 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
           onClose={toggleSidebar}
           ModalProps={{ keepMounted: true }}
           sx={{
-            display: { xs: "block",
-            lg: "none",
+            display: {
+              xs: "block",
+              lg: "none",
            },
             "& .MuiDrawer-paper": {
               height: `calc(100vh)`,

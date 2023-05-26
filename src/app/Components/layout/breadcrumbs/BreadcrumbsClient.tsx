@@ -28,7 +28,7 @@ const BreadcrumbsClient = ({ folderPath }: {folderPath?: FolderPath}) => {
   breadcrumbs.shift()
 
 return (
-  <nav className="flex items-center px-[2vw] overflow-x-auto mx-auto max-w-[95vw]">
+  <nav className="flex items-center px-[2vw] overflow-x-auto mx-auto max-w-[95vw] mt-8 md:mt-10 grid-rows-3 mb-4 md:mb-8">
     <Link
       href={`/`}
       className="text-gray-500 hover:text-gray-700 transition-colors duration-300 no-underline flex items-center"

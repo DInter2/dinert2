@@ -6,18 +6,16 @@ import { Box } from '@mui/material';
 export default function MainContent({ children }: {children: React.ReactNode }) {
 
   return (
-    <div className='flex-grow'>
-        <Box
-          maxWidth="xl"
-          sx={{
-            px: {sm: 2, xs: 0},
-            boxSizing: "border-box",
-            color: "white",
-            ml: { lg: `${drawerWidth}px`, xs:0 },
-            width: { lg: `calc(100% - ${drawerWidth}px)`, xs: "calc(100%)"},
-          }}>
-          {children}
-        </Box>
-    </div>
+    <Box
+      sx={{
+        px: {sm: 2, xs: 0},
+        boxSizing: "border-box",
+        color: "white",
+        ml: { lg: `${drawerWidth}px`, xs:0 },
+        width: { lg: `calc(100% - ${drawerWidth}px)`, xs: "100%"},
+        minHeight: "85vh",
+      }}>
+      {children}
+    </Box>
   )
 }

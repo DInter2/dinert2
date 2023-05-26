@@ -13,7 +13,7 @@ import { Fragment } from "react";
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbyJLv9p6MaJ_gUbC5PuuGMG5bwjh0GpOItdTlSu2pDh_Hf2-p7VHorpDMKpyhlNv2lkJQ/exec?folderId=${folderId}`,
-    {next: {revalidate: 60}}
+    // {next: {revalidate: 60}}
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -26,7 +26,7 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
   const data = await getDataById(folderId);
 
   return (
-    <>
+    <Fragment>
     <BreadcrumbsClient folderPath={data.path} />
       {data.page!! && <Fragment> {data.page.sort((a, b) => {
           return a.name.localeCompare(b.name);
@@ -40,7 +40,7 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
           />
       </ClientMarkdown>))}</Fragment>}
       <Content  data={data} />
-    </>
+    </Fragment>
   )
 }
 
