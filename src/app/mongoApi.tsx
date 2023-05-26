@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { ResponseFuncs } from "../types/mongo"
-import { connect } from "@/lib/dbConected"
 
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -14,13 +13,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const handleCase: ResponseFuncs = {
     // RESPONSE FOR GET REQUESTS
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Todo } = await connect() // connect to database
-      res.json(await Todo.find({}).catch(catcher))
+      // const { Todo } = await connect()
+      res.json("cefas")
     },
     // RESPONSE POST REQUESTS
     POST: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Todo } = await connect() // connect to database
-      res.json(await Todo.create(req.body).catch(catcher))
+      // const { Todo } = await connect()
+      res.json("cefas")
     },
   }
 
