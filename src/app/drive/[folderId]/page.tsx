@@ -7,8 +7,14 @@ import { ClientMarkdown } from "@/app/[maneName]/[menuId]/components/clientMarkd
 import MarkdownView from "react-showdown";
 import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Components/widgets/icons";
 import { Fragment } from "react";
+import dynamic from 'next/dynamic';
 
-
+const LaziContent = dynamic(
+  () => import('./components/Content/Content'),
+  {
+    loading: () => <p className="text-gray-900">Loading...</p>,
+  },
+);
 
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
@@ -39,22 +45,9 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
           components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord }}
           />
       </ClientMarkdown>))}</Fragment>}
-      <Content  data={data} />
+      <LaziContent  data={data} />
     </Fragment>
   )
 }
 
-const Content = ({data}: {data: FolderDto}) => (
-  <>
-  {data.folders.length != 0 && <Folder title={data.name + " PASTAS"} >
-    {data.folders.sort(function(a,b): number{
-      return a.name.localeCompare(b.name)
-    }).map((folder)=>{
-      return <FolderCard key={folder.id} folder={folder} />
-    })}
-    </Folder>}
-    {data.files.length != 0 && <Folder title={data.name + " ARQUIVOS"} >
-      {data.files.map((file) => <Thumbnail key={file.id} file={file}/>)}
-    </Folder>}
-  </>
-)
+
