@@ -1,8 +1,5 @@
-import Folder from "./components/Folder/Folder.Server";
 import BreadcrumbsClient from "@/app/Components/layout/breadcrumbs/BreadcrumbsClient";
 import { FolderDto } from "@/types/Folder";
-import { FolderCard } from "../components/folder_card";
-import Thumbnail from "./components/files/ThumbnailsImage";
 import { ClientMarkdown } from "@/app/[maneName]/[menuId]/components/clientMarkdown";
 import MarkdownView from "react-showdown";
 import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Components/widgets/icons";
@@ -18,7 +15,7 @@ const LaziContent = dynamic(
 
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
-    `https://script.google.com/macros/s/AKfycbyJLv9p6MaJ_gUbC5PuuGMG5bwjh0GpOItdTlSu2pDh_Hf2-p7VHorpDMKpyhlNv2lkJQ/exec?folderId=${folderId}`,
+    `https://script.google.com/macros/s/AKfycbyXQ1LVV0i6_co3jPwwBNceYZdNpfGdVflBCdAS_5UngNuKFS2rNKzdyGiRG6QDk21gDg/exec?folderId=${folderId}`,
     // {next: {revalidate: 60}}
     );
   if (!res.ok) {
