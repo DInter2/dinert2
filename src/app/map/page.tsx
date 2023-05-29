@@ -1,5 +1,8 @@
+import { NextResponse } from 'next/server';
+import Progresindicate from '../Components/widgets/skeleton/Progresindicate';
+
+
+
 export default async function Map() {
-  return (
-    <h1>Mapa dinâmico </h1>
-  )
+  return <Progresindicate />
 }

@@ -12,8 +12,8 @@ type OpenProps = {
 const MenuLink = ({ folder }: {folder: FolderDto[]}) => {
   const { isOpen, toggleSidebar } = useSidebar();
   const router = useRouter();
-  const handleOpenMenu = (id: string)=>{
-    router.push(`/drive/${id}`)
+  const handleOpenMenu = (id: string, title: string)=>{
+    router.push(`/drive/${id}?title=${title}`)
     if(isOpen){
       toggleSidebar()
     }
@@ -26,7 +26,7 @@ const MenuLink = ({ folder }: {folder: FolderDto[]}) => {
             <div  key={menu.id}>
               <ListItemButton
                 sx={{ mb: 1, mx: 1, borderRadius: 2, backdropFilter: "blur(1px)", bgcolor: "rgba(0, 0, 0, 0.80)"}}
-                onClick={() => handleOpenMenu(menu.id)}
+                onClick={() => handleOpenMenu(menu.id, menu.name.split("-")[1])}
               >
                 <ListItem  disablePadding >
                   <ListItemText>

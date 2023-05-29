@@ -5,13 +5,7 @@ import MarkdownView from "react-showdown";
 import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Components/widgets/icons";
 import { Fragment } from "react";
 import dynamic from 'next/dynamic';
-
-const LaziContent = dynamic(
-  () => import('./components/Content/Content'),
-  {
-    loading: () => <p className="text-gray-900">Loading...</p>,
-  },
-);
+import Content from "./components/Content/Content";
 
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
@@ -42,7 +36,7 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
           components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord }}
           />
       </ClientMarkdown>))}</Fragment>}
-      <LaziContent  data={data} />
+      <Content  data={data} />
     </Fragment>
   )
 }
