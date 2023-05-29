@@ -10,7 +10,7 @@ import Content from "./components/Content/Content";
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbyXQ1LVV0i6_co3jPwwBNceYZdNpfGdVflBCdAS_5UngNuKFS2rNKzdyGiRG6QDk21gDg/exec?folderId=${folderId}`,
-    // {next: {revalidate: 60}}
+    {next: {revalidate: 60}}
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
