@@ -4,12 +4,12 @@ import { ClientMarkdown } from "@/app/[maneName]/[menuId]/components/clientMarkd
 import MarkdownView from "react-showdown";
 import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Components/widgets/icons";
 import { Fragment } from "react";
-import dynamic from 'next/dynamic';
 import Content from "./components/Content/Content";
+import { appScriptUrl } from "@/lib/endpoint";
 
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
-    `https://script.google.com/macros/s/AKfycbyXQ1LVV0i6_co3jPwwBNceYZdNpfGdVflBCdAS_5UngNuKFS2rNKzdyGiRG6QDk21gDg/exec?folderId=${folderId}`,
+    `${appScriptUrl}?folderId=${folderId}`,
     {next: {revalidate: 60}}
     );
   if (!res.ok) {
