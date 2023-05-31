@@ -3,6 +3,7 @@ import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "./Components/
 import { ClientMarkdown } from "./[maneName]/[menuId]/components/clientMarkdown";
 import MarkdownView from "react-showdown";
 import { Fragment } from "react";
+import { Logo } from "./Components/layout/logo/Logo";
 
 export interface Todo {
     userId: number,
@@ -13,7 +14,9 @@ export interface Todo {
 async function getDriveLinks() :Promise<FolderDto>{
   const res = await fetch(
     `https://script.google.com/macros/s/AKfycbyJLv9p6MaJ_gUbC5PuuGMG5bwjh0GpOItdTlSu2pDh_Hf2-p7VHorpDMKpyhlNv2lkJQ/exec?folderId=1S9rwKehcfMwdBkXKam4wtQI_c4BDsaRE`,
-    {cache: "no-cache"}
+    {next: {
+      revalidate: 60
+    }}
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -32,7 +35,7 @@ export  default async function Home() {
             className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full"
             markdown={session.content}
             options={{ tables: true, emoji: true, }}
-            components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord }}
+            components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord, Logo }}
             />
         </ClientMarkdown>))}</Fragment>}
       </>
