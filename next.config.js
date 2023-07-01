@@ -22,7 +22,7 @@ const nextConfig = {
       },
     ],
 
-    domains: ['lh3.google.com', "s3.amazonaws.com"],
+    domains: ['lh3.google.com', "s3.amazonaws.com", "lh3.googleusercontent.com"],
   },
   experimental: {
     appDir: true,

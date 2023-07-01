@@ -32,15 +32,16 @@ export const Header = ()  => {
       >
         <Logo />
       </Box>
+      <Box sx={{ flexGrow: 1, display: "fex", alignItems: "center",justifyContent: "end" }} />
 
-        <Box sx={{ flexGrow: 1, display: "fex", alignItems: "center",justifyContent: "end" }} />
-          <IconButton onClick={()=>{setIssearch(true)}}>
-            <GoSearch />
-          </IconButton>
-          <Box sx={{display:{xs: "fex", md: "none"}}}>
-            <SocialIcons />
-            <HeaderMenu />
-          </Box>
+      <IconButton onClick={()=>{setIssearch(true)}}>
+        <GoSearch />
+      </IconButton>
+
+      <Box sx={{display:{xs: "fex", md: "none"}}}>
+        <SocialIcons />
+        <HeaderMenu />
+      </Box>
       <Box sx={{display:{xs: "none", md: "fex"}}}>
         <SocialIcons />
         <HeaderMenu />

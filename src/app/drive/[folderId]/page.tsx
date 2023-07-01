@@ -6,6 +6,7 @@ import { IconForm, IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Compone
 import { Fragment } from "react";
 import Content from "./components/Content/Content";
 import { appScriptUrl } from "@/lib/endpoint";
+import EmptyState from "@/app/Components/emptyState/EmptyState";
 
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
@@ -21,10 +22,10 @@ async function getDataById(folderId: string): Promise<FolderDto> {
 
 export default async  function DriveFolder({ params: { folderId }}: {params: {folderId: string}}) {
   const data = await getDataById(folderId);
-
   return (
     <Fragment>
     <BreadcrumbsClient folderPath={data.path} />
+    {!data.files.length!! && !data.folders.length!! && !data.page.length!! && <EmptyState />}
       {data.page!! && <Fragment> {data.page.sort((a, b) => {
           return a.name.localeCompare(b.name);
         }).map((session, i)=>(

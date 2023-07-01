@@ -1,5 +1,5 @@
 'use client'
-/* eslint-disable @next/next/no-img-element */
+
 import { DateBr } from "@/app/core/dateConvereter"
 import { FileDto } from "@/types/File"
 import Image from "next/image"
@@ -10,7 +10,7 @@ export function FileCard({file}:{file:FileDto}){
       <Link href={file.url} target="_blank" rel="noopener noreferrer">
       <div className="group/File widget max-w-xs p-4 border rounded-md hover:bg-orange-500 hover:ring-red-600 duration-300 hover:-translate-y-1">
         <div className="w-full max-w-md mx-auto mb-4">
-        <img
+        <Image
           className="max-w-full rounded-md group-hover/File:text-white text-gray-800"
           src={`https://lh3.google.com/u/0/d/${file.id}=s320-w320-h200-k-p`}
           width={500}

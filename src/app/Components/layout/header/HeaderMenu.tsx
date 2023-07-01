@@ -9,10 +9,14 @@ import { CustonThemeContext } from '../../client/theme/MuiTheme.Context';
 import { IoMdMore } from 'react-icons/io';
 import { MdExitToApp } from 'react-icons/md';
 import Link from 'next/link';
+import useRegisterModal from '../../client/hooks/useRegisterModal';
+import useLoginModal from '../../client/hooks/useLoginModal';
 
 export default function HeaderMenu() {
   const { theme, toggleTheme } =  React.useContext(CustonThemeContext);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -67,6 +71,8 @@ export default function HeaderMenu() {
           label=""
           />
         </MenuItem >
+        {/* <MenuItem onClick={loginModal.onOpen} label="Login" />
+        <MenuItem onClick={registerModal.onOpen} label="Sign up" /> */}
         <MenuItem onClick={handleLogOut} sx={{borderRadius: 2,  mx: 1}}>
           <FormControlLabel
           onChange={handleShecked}

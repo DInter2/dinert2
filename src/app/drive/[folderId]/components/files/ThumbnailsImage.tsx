@@ -13,7 +13,7 @@ export default function Thumbnail({ file }: { file: FileDto }) {
         <div className="relative min-w-full h-40 rounded-md bg-gray-200">
           <img
               className="text-gray-800 object-contain pt-4 min-w-full"
-              src={`https://lh3.google.com/u/0/d/${file.id}=s320-w320-h200-k-p`}
+              src={file.thumbnail}
               alt={file.name}
               onError={({ currentTarget,  }) => {
                 currentTarget.onerror = null;
@@ -34,3 +34,5 @@ export default function Thumbnail({ file }: { file: FileDto }) {
   );
 }
 
+
+const obg = [{"item":"Matrícula dos componentes","response":"7181590, 1111111","sheetName":""},{"item":"Bravo","response":"B1788353","sheetName":""},{"item":"Data de Palestra","response":"2023-06-01 11:11","sheetName":""},{"item":"Tema da palestra","response":"SALV - (Salvamento)","sheetName":""},{"item":"Quantidade de pessoas atendidas ","response":"10","sheetName":""},{"item":"Nome do estabelecimento","response":"ç;k","sheetName":""},{"item":"Natureza jurídica do estabelecimento ","response":"Outros","sheetName":""},{"item":"Telefone","response":"1111","sheetName":""},{"item":"Endereço","response":"kkkk","sheetName":""},{"item":"Cidade","response":"Cabrobó","sheetName":""},{"item":"Coordenadas","response":"-7.454525/-38.274803","sheetName":""},{"item":"Nome","response":"vsdfv","sheetName":""},{"item":"Telefone","response":"sdvsd","sheetName":""},{"item":"Email","response":"cd@gmail.com","sheetName":""},{"item":"Possui AVCB","response":"Não","sheetName":""},{"item":"Número do protocolo","response":"123123","sheetName":""},{"item":"Vencimento","response":"2023-06-02","sheetName":""}]
