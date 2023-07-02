@@ -11,7 +11,8 @@ import EmptyState from "@/app/Components/emptyState/EmptyState";
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
     `${appScriptUrl}?folderId=${folderId}`,
-    {next: {revalidate: 60}}
+    // {cache: "no-cache"}
+    // {next: {revalidate: 60}}
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -31,7 +32,7 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
         }).map((session, i)=>(
         <ClientMarkdown key={i}>
         <MarkdownView
-          className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full"
+          className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full md:px-16"
           markdown={session.content}
           options={{ tables: true, emoji: true, }}
           components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord }}

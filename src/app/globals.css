@@ -13,8 +13,14 @@
   .markdown li{
     @apply 2xl:text-xl xl:text-xl md:text-xl sm:text-sm p-2 py-4 hover:bg-slate-200 w-full text-slate-900
   }
-  h2 {
-    @apply text-2xl mt-4 md:mt-8 text-center mb-4 sm:text-3xl md:text-4xl
+  .markdown h5 {
+    @apply pb-4
+  }
+  .markdown h3 {
+    @apply text-center text-lg sm:text-2xl md:text-xl
+  }
+  .markdown h2 {
+    @apply text-2xl mt-4 md:mt-8 text-center mb-4 sm:text-3xl md:text-4xl md:pb-4
   }
 
   table {
