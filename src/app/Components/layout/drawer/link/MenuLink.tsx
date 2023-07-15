@@ -18,11 +18,10 @@ const MenuLink = ({ folder }: {folder: FolderDto[]}) => {
       toggleSidebar()
     }
   }
-
   return (
     <Box bgcolor="transparent ">
         <Collapse  in={true} timeout="auto" unmountOnExit>
-          {folder.map((menu) => (
+          {folder.sort((a, b) => a.name.localeCompare(b.name)).map((menu) => (
             <div  key={menu.id}>
               <ListItemButton
                 sx={{ mb: 1, mx: 1, borderRadius: 2, backdropFilter: "blur(1px)", bgcolor: "rgba(0, 0, 0, 0.80)"}}

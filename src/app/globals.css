@@ -22,6 +22,9 @@
   .markdown h2 {
     @apply text-2xl mt-4 md:mt-8 text-center mb-4 sm:text-3xl md:text-4xl md:pb-4
   }
+  .markdown iframe {
+    @apply w-full h-[80vh]
+  }
 
   table {
     @apply  mx-auto border-collapse border table-auto  border-transparent rounded-lg shadow-md w-max mb-6;

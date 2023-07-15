@@ -1,10 +1,8 @@
 import { FolderDto } from "@/types/Folder";
 import { FolderCard } from "../../components/folder_card";
-import { FileCard } from "./files/filesCards";
 import Thumbnail from "./files/ThumbnailsImage";
 
 export function Folders({folderDto}: {folderDto: FolderDto}) {
-
   return (
     <>
       {folderDto.folders.sort(function(a,b): number{

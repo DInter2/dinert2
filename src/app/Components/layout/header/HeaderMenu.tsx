@@ -60,8 +60,9 @@ export default function HeaderMenu() {
       >
         <MenuItem onClick={handleClose} sx={{borderRadius: 2,  mx: 1, p: 1}}>
           <Link
+            className='dark:text-gray-900'
             href={`/about`}
-            style={{ textDecoration: "none", color: "inherit", padding: 1}}
+            style={{ textDecoration: "none", padding: 1}}
           > Sobre</Link>
         </MenuItem>
         <MenuItem sx={{borderRadius: 2,  mx: 1}}>
@@ -75,6 +76,7 @@ export default function HeaderMenu() {
         <MenuItem onClick={registerModal.onOpen} label="Sign up" /> */}
         <MenuItem onClick={handleLogOut} sx={{borderRadius: 2,  mx: 1}}>
           <FormControlLabel
+          className='dark:text-gray-900'
           onChange={handleShecked}
           control={<MdExitToApp  className='mx-1' />}
           label="Sair"

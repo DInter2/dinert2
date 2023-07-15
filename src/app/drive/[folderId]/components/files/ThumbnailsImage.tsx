@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function Thumbnail({ file }: { file: FileDto }) {
 
   return (
-    <Link href={file.url}>
+    <Link target="_blank" href={file.url}>
       <div className="group/File col-span-1 bg-white hover:bg-gray-600 pt-1 shadow-md rounded-lg overflow-hidden duration-300 hover:-translate-y-1">
         <div className="relative min-w-full h-40 rounded-md bg-gray-200">
           <img
