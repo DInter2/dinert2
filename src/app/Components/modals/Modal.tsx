@@ -11,7 +11,7 @@ interface ModalProps {
   title?: string;
   body?: React.ReactElement;
   footer?: React.ReactElement;
-  actionLabel: string;
+  actionLabel?: string;
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryActionLabel?: string;
@@ -106,26 +106,29 @@ const Modal: React.FC<ModalProps> = ({
             `}
           >
             <div
-              className="
-                translate
-                h-full
-                lg:h-auto
-                md:h-auto
-                border-0
-                rounded-lg
-                shadow-lg
-                relative
-                flex
-                flex-col
-                w-full
-                bg-white
-                outline-none
-                focus:outline-none
-              "
+              className={`
+              translate
+              h-full
+              lg:h-auto
+              md:h-auto
+              lg:ml-44
+              border-0
+              rounded-lg
+              shadow-lg
+              relative
+              flex
+              flex-col
+              w-full
+              bg-white
+              outline-none
+              focus:outline-none
+              `}
             >
               {/*header*/}
               <div
                 className="
+                  mt-16
+                  md:mt-0
                   flex
                   items-center
                   p-6
@@ -178,11 +181,11 @@ const Modal: React.FC<ModalProps> = ({
                       label={secondaryActionLabel}
                     />
                   )}
-                  <Button
+                  {actionLabel! && <Button
                     disabled={disabled}
                     onClick={handleSubmit}
                     label={actionLabel}
-                  />
+                  />}
                 </div>
                 {footer}
               </div>

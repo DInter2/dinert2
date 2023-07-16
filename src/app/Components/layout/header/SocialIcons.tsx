@@ -5,10 +5,10 @@ import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai'
 function SocialIcons() {
   return (
     <>
-      <IconButton href="https://www.instagram.com/dinter.2/">
+      <IconButton href="https://www.instagram.com/dinter.2/" target="_blank">
         <AiFillInstagram />
       </IconButton>
-      <IconButton href="https://www.youtube.com/dinter2cbmpe">
+      <IconButton href="https://www.youtube.com/dinter2cbmpe" target="_blank">
         <AiFillYoutube />
       </IconButton>
     </>

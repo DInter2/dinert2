@@ -51,7 +51,7 @@ export const darkTheme = createTheme({
 export const lightTheme = createTheme({
   components: components,
   palette: {
-    background: {default: "#faf6cf", paper: "rgba(255, 255, 255, 1)"},
+    background: {default: "#FFE5BE", paper: "rgba(255, 255, 255, 1)"},
     mode: "light",
     primary: { main: "#e53509" },
     secondary: {main: "#D35400" },

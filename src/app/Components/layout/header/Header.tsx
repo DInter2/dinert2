@@ -8,10 +8,12 @@ import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import SocialIcons from './SocialIcons';
 import HeaderMenu from './HeaderMenu';
 import { useSidebar } from '../../client/sidebar/Sidebar.Context';
+import useSearchModal from '../../client/hooks/useSearchModal';
 
 export const Header = ()  => {
   const { isOpen, toggleSidebar } = useSidebar();
   const [ isSearch, setIssearch] = useState(false);
+  const searchModal = useSearchModal()
   return (
     <Toolbar  variant="regular">
       <IconButton
@@ -35,7 +37,7 @@ export const Header = ()  => {
       <Box sx={{ flexGrow: 1, display: "fex", alignItems: "center",justifyContent: "end" }} />
 
       <IconButton onClick={()=>{setIssearch(true)}}>
-        <GoSearch />
+        <GoSearch onClick={()=> searchModal.onOpen()}/>
       </IconButton>
 
       <Box sx={{display:{xs: "fex", md: "none"}}}>

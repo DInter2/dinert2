@@ -10,6 +10,7 @@ import ResponsiveDrawer from './Components/layout/drawer/ResponsiveDrawer'
 import SectionMenuLink from './Components/layout/drawer/link/SectionMenuLink'
 import RegisterModal from './Components/modals/RegisterModal'
 import LoginModal from './Components/modals/LoginModal'
+import SearchModal from './Components/modals/SearchModal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -47,6 +48,7 @@ export default async function RootLayout({
         <MuiThemeClient>
         <RegisterModal />
         <LoginModal />
+        <SearchModal/>
           <AppBarHeader />
             <ResponsiveDrawer>
               <DrawerServer link={false} data={resp[0].folders}/>
