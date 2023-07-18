@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest,
   { params: { fileName } }: { params: { fileName: string } }) {
 
-  const res = await fetch(`https://script.google.com/macros/s/AKfycbyU6k1OceS7geopFr8vptefOIb-dBmjWTWeeqfBFMs0n79cDpq6EEOS_bga74bTUk7yGQ/exec?query=${fileName}`,
+  const res = await fetch(`https://script.google.com/macros/s/AKfycbyCVtQ7f6K_4LTbhxY80o80fZlrmlvZx9Ry125Gx4RbanSlYJSQxaV2FlMuANqm0eibMg/exec?query=${fileName}`,
    {
     cache: "no-cache"
    });

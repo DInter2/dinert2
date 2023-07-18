@@ -107,10 +107,11 @@ const Modal: React.FC<ModalProps> = ({
           >
             <div
               className={`
+              mt-20
               translate
+              lg:h-[80vh]
+              md:h-[80vh]
               h-full
-              lg:h-auto
-              md:h-auto
               lg:ml-44
               border-0
               rounded-lg
@@ -127,7 +128,7 @@ const Modal: React.FC<ModalProps> = ({
               {/*header*/}
               <div
                 className="
-                  mt-16
+
                   md:mt-0
                   flex
                   items-center
