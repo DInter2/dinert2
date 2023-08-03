@@ -6,19 +6,19 @@ import { Tooltip } from '@mui/material';
 import Link from 'next/link';
 
 export default function Thumbnail({ file }: { file: FileDto }) {
-
+  const isMedia = file.mimeType != null? file.mimeType.includes("image")! || file.mimeType.includes("video")!: false;
   return (
     <Link target="_blank" href={file.url}>
-      <div className="group/File col-span-1 bg-white hover:bg-gray-600 pt-1 shadow-md rounded-lg overflow-hidden duration-300 hover:-translate-y-1">
-        <div className="relative min-w-full h-40 rounded-md bg-gray-200">
+      <div className="group/File col-span-1 bg-white hover:bg-gray-600 pt-1 shadow-md overflow-hidden rounded-lg duration-300 hover:-translate-y-1">
+        <div className="relative h-40 rounded-md bg-gray-200 min-w-[100%]">
           <img
-              className="text-gray-800 object-contain pt-4 min-w-full"
-              src={file.thumbnail}
+              className={`text-gray-800 object-none ${isMedia? "object-center": "object-top"} min-w-[100%]`}
+              src={`https://lh3.google.com/u/0/d/${file.id}=s320-w320-h320-k-p`}
               alt={file.name}
               onError={({ currentTarget,  }) => {
                 currentTarget.onerror = null;
                 currentTarget.src = '/images/google-drive.png';
-                currentTarget.classList.add("p-auto")
+                currentTarget.classList.add("p-auto ");
               }}
             />
           <span className="absolute top-0 right-0 m-2 px-2 py-1 bg-black text-white text-xs font-bold rounded"><DateBr date={file.updatedAt} /></span>

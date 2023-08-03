@@ -4,6 +4,7 @@ import { ClientMarkdown } from "./[maneName]/[menuId]/components/clientMarkdown"
 import MarkdownView from "react-showdown";
 import { Fragment } from "react";
 import { Logo } from "./Components/layout/logo/Logo";
+import { appScriptUrl } from "@/lib/endpoint";
 
 export interface Todo {
     userId: number,
@@ -13,7 +14,7 @@ export interface Todo {
 }
 async function getDriveLinks() :Promise<FolderDto>{
   const res = await fetch(
-    `https://script.google.com/macros/s/AKfycbyJLv9p6MaJ_gUbC5PuuGMG5bwjh0GpOItdTlSu2pDh_Hf2-p7VHorpDMKpyhlNv2lkJQ/exec?folderId=1S9rwKehcfMwdBkXKam4wtQI_c4BDsaRE`,
+    `${appScriptUrl}?folderId=1S9rwKehcfMwdBkXKam4wtQI_c4BDsaRE`,
     {next: {
       revalidate: 60
     }}
@@ -27,7 +28,7 @@ export  default async function Home() {
   const folder = await getDriveLinks()
   return (
     <>
-    {folder.page.length && <Fragment> {folder.page.sort((a, b) => {
+    {folder.page! && <Fragment> {folder.page.sort((a, b) => {
     return a.name.localeCompare(b.name);
     }).map((session, i)=>(
           <ClientMarkdown key={i}>
