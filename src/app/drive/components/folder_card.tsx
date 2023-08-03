@@ -16,6 +16,6 @@ export const FolderCard = ({folder}: {folder: FolderDto}) => (
       {folder.name.includes("(PowerBi)")? <PowerBiIcon/>: folder.name.includes("(LookerStudio)")? <SiLooker size={40} className="text-blue-600"/>: <FcFolder size={40}/>}
       <h3 className="text-slate-900 group-hover/Card:text-white text-sm font-semibold">{ folder.name}</h3>
     </div>
-    <p className="text-slate-500 group-hover/Card:text-white text-sm">{folder.description.replace('(page)', '')}</p>
+    <p className="text-slate-500 group-hover/Card:text-white text-sm">{folder.description != null? folder.description.replace('(page)', ''): ""}</p>
   </Link>
 )
