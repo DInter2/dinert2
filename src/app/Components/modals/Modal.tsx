@@ -68,27 +68,29 @@ const Modal: React.FC<ModalProps> = ({
     <>
       <div
         className="
+        absolute
           justify-center
           items-center
           flex
           overflow-x-hidden
           overflow-y-hidden
-          fixed
           inset-0
-          z-50
+          z-5000
           outline-none
           focus:outline-none
           bg-neutral-800/70
+
         "
       >
         <div
           className="
             relative
+            box-border
             w-full
             md:w-4/6
             lg:w-3/6
             xl:w-2/5
-            my-6
+
             mx-auto
             h-full
             lg:h-auto
@@ -107,7 +109,6 @@ const Modal: React.FC<ModalProps> = ({
           >
             <div
               className={`
-              mt-20
               translate
               lg:h-[80vh]
               md:h-[80vh]

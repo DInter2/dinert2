@@ -11,6 +11,7 @@ import SectionMenuLink from './Components/layout/drawer/link/SectionMenuLink'
 import RegisterModal from './Components/modals/RegisterModal'
 import LoginModal from './Components/modals/LoginModal'
 import SearchModal from './Components/modals/SearchModal'
+import getCurrentUser from './actions/getCurrentUser'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,6 +42,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const currentUser = await getCurrentUser();
   const resp = await Promise.all([getMobileMenus(), getDriveLinks()])
   return (
     <html lang="pt">
@@ -49,10 +51,10 @@ export default async function RootLayout({
         <RegisterModal />
         <LoginModal />
         <SearchModal/>
-          <AppBarHeader />
+          <AppBarHeader currentUser={currentUser}/>
             <ResponsiveDrawer>
               <DrawerServer link={false} data={resp[0].folders}/>
-              {resp[1].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
+              {currentUser!&& resp[1].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
             </ResponsiveDrawer>
           <MainContent >
             { children }

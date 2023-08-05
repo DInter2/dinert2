@@ -4,8 +4,9 @@ import React, { useLayoutEffect, useState } from 'react'
 import { appBarHeight } from '../../consts/appBarHeigth'
 import { drawerWidth } from '../../consts/drawerWidth'
 import { Header } from './Header'
+import { User } from '@/types/user'
 
-const AppBarHeader = () => {
+const AppBarHeader = ({ currentUser }: {currentUser: User}) => {
   const [scrollPosition, setPosition] = useState(0);
 
   useLayoutEffect(() => {
@@ -35,7 +36,7 @@ const AppBarHeader = () => {
             marginX: "1%",
           }}
         >
-          <Header />
+          <Header currentUser={currentUser} />
       </AppBar>
     </Box>
   )

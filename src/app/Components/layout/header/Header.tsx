@@ -9,8 +9,9 @@ import SocialIcons from './SocialIcons';
 import HeaderMenu from './HeaderMenu';
 import { useSidebar } from '../../client/sidebar/Sidebar.Context';
 import useSearchModal from '../../client/hooks/useSearchModal';
+import { User } from '@/types/user';
 
-export const Header = ()  => {
+export const Header = ({ currentUser }: {currentUser: User})  => {
   const { isOpen, toggleSidebar } = useSidebar();
   const [ isSearch, setIssearch] = useState(false);
   const searchModal = useSearchModal()
@@ -42,11 +43,11 @@ export const Header = ()  => {
 
       <Box sx={{display:{xs: "fex", md: "none"}}}>
         <SocialIcons />
-        <HeaderMenu />
+        <HeaderMenu currentUser={currentUser}/>
       </Box>
       <Box sx={{display:{xs: "none", md: "fex"}}}>
         <SocialIcons />
-        <HeaderMenu />
+        <HeaderMenu currentUser={currentUser} />
       </Box>
     </Toolbar>
   )

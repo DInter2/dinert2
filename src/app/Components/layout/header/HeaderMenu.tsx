@@ -8,15 +8,13 @@ import { styled } from '@mui/system';
 import { CustonThemeContext } from '../../client/theme/MuiTheme.Context';
 import { IoMdMore } from 'react-icons/io';
 import { MdExitToApp } from 'react-icons/md';
-import Link from 'next/link';
-import useRegisterModal from '../../client/hooks/useRegisterModal';
-import useLoginModal from '../../client/hooks/useLoginModal';
+import { signIn, signOut } from 'next-auth/react';
+import { User } from '@/types/user';
+import Avatar from './Avatar';
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ currentUser }: {currentUser: User}) {
   const { theme, toggleTheme } =  React.useContext(CustonThemeContext);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const registerModal = useRegisterModal();
-  const loginModal = useLoginModal();
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -43,6 +41,7 @@ export default function HeaderMenu() {
       >
         <IoMdMore />
       </IconButton>
+
       <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
@@ -57,36 +56,58 @@ export default function HeaderMenu() {
           vertical: 'top',
           horizontal: 'left',
         }}
-      >
-        <MenuItem onClick={handleClose} sx={{borderRadius: 2,  mx: 1, p: 1}}>
-          <Link
-            className='dark:text-gray-900'
-            href={`/about`}
-            style={{ textDecoration: "none", padding: 1}}
-          > Sobre</Link>
-        </MenuItem>
-        <MenuItem sx={{borderRadius: 2,  mx: 1}}>
+        >
+          <Avatar onClick={handleClick} src={currentUser?.image}/>
+        {/* <MenuItem sx={{borderRadius: 2,  mx: 1}}>
           <FormControlLabel
           onChange={handleShecked}
           control={<MaterialUISwitch checked={theme.palette.mode === 'dark'} theme={theme} />}
           label=""
           />
-        </MenuItem >
-        {/* <MenuItem onClick={loginModal.onOpen} label="Login" />
-        <MenuItem onClick={registerModal.onOpen} label="Sign up" /> */}
-        <MenuItem onClick={handleLogOut} sx={{borderRadius: 2,  mx: 1}}>
-          <FormControlLabel
-          className='dark:text-gray-900'
-          onChange={handleShecked}
-          control={<MdExitToApp  className='mx-1' />}
-          label="Sair"
-          />
-        </MenuItem>
+        </MenuItem > */}
+        {
+          currentUser!
+          ?<MenuItem onClick={()=>{
+              handleLogOut();
+              signOut()
+              }} sx={{borderRadius: 2,  mx: 1}}>
+                 <div
+                className='dark:text-gray-900'
+                style={{ textDecoration: "none", padding: 1}}
+              > Sair</div>
+            </MenuItem>
+          :<MenuItem onClick={()=> {
+            handleClose();
+              signIn('google');
+            }} sx={{borderRadius: 2,  mx: 1, p: 1}}>
+            <div
+              className='dark:text-gray-900'
+              style={{ textDecoration: "none", padding: 1}}
+            > Login</div>
+          </MenuItem>
+        }
       </Menu>
     </div>
   );
 }
-
+// {(!currentUser! && <MenuItem onClick={()=> {
+//   handleClose();
+//    signIn('google');
+// }} sx={{borderRadius: 2,  mx: 1, p: 1}}>
+//   <div
+//     className='dark:text-gray-900'
+//     style={{ textDecoration: "none", padding: 1}}
+//   > Login</div>
+// </MenuItem>:
+// <MenuItem onClick={()=>{
+//   handleLogOut();
+//   signOut()
+//   }} sx={{borderRadius: 2,  mx: 1}}>
+//      <div
+//     className='dark:text-gray-900'
+//     style={{ textDecoration: "none", padding: 1}}
+//   > Sair</div>
+// </MenuItem>)}
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
