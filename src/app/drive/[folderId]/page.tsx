@@ -7,6 +7,8 @@ import { Fragment } from "react";
 import Content from "./components/Content/Content";
 import { appScriptUrl } from "@/lib/endpoint";
 import EmptyState from "@/app/Components/emptyState/EmptyState";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import NotAutarized from "@/app/Components/NotAutarized";
 
 async function getDataById(folderId: string): Promise<FolderDto> {
   const res = await fetch(
@@ -22,6 +24,14 @@ async function getDataById(folderId: string): Promise<FolderDto> {
 
 
 export default async  function DriveFolder({ params: { folderId }}: {params: {folderId: string}}) {
+  const currentUser = await getCurrentUser();
+  if (!currentUser!) {
+
+    return (
+      <NotAutarized />
+    )
+  }
+
   const data = await getDataById(folderId);
   return (
     <Fragment>
