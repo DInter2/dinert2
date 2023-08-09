@@ -79,7 +79,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between", zIndex:100}} >
                 <Logo  />
               </Toolbar>
-          <div className="h-screen">
+          <div className="h-screen w-64">
             {children}
           </div>
           </div>
