@@ -11,7 +11,7 @@ const DrawerSubMenu = ({ title, id }: { title: string, id: string }) => {
   const router = useRouter();
   const { isOpen, toggleSidebar } = useSidebar();
   return (
-    <Link href={`/drive/${id}`}>
+    <Link href={`/${title.toLowerCase()}/${id}`}>
       <div className="my-1 bg-amber-600w-full ml-2 box-border">
         <button
           className="flex hover:bg-orange-500
