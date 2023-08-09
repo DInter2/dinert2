@@ -5,7 +5,7 @@ import DrawerSubMenu from './DrawerSubMenu.Client';
 
  const DrawerServer = ({data, link}: {data: FolderDto[], link: boolean})  => {
   return (
-    <div className="container mx-auto pt-4">
+    <div className="container mx-auto pt-0">
       {data.map((folder, index) => (
         <DrawerClient link={link} index={index} key={folder.id} title={folder.name.split("_")[1]} id={folder.id}>
           {folder.folders.length!! && folder.folders.map((folder)=>

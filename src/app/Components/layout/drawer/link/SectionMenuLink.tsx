@@ -25,14 +25,13 @@ const section = index > 1 ? sections(1) : sections(index)
     <div>
       {
         <div key={section.title}>
-          <Divider  color="white" sx={{mt: 2}}/>
             <Box  sx={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               backdropFilter: "blur(6px)",
               mb: 1,
-              mt: 1,
+              mt: 4,
               p: 1,
               }}>
                 {section.icon}

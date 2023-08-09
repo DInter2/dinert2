@@ -53,8 +53,8 @@ export default async function RootLayout({
         <SearchModal/>
           <AppBarHeader currentUser={currentUser}/>
             <ResponsiveDrawer>
-              <DrawerServer link={false} data={resp[0].folders}/>
-              {currentUser!&& resp[1].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
+                <DrawerServer link={false} data={resp[0].folders}/>
+                {currentUser!&& resp[1].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
             </ResponsiveDrawer>
           <MainContent >
             { children }

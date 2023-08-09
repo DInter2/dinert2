@@ -13,6 +13,7 @@ import { Logo } from "../logo/Logo";
 import { ReactNode } from "react";
 import { useSidebar } from "../../client/sidebar/Sidebar.Context";
 import { MdClose } from "react-icons/md"
+import zIndex from "@mui/material/styles/zIndex";
 
 
 type ResponsiveDrawerProps = {
@@ -23,109 +24,66 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
   const { isOpen, toggleSidebar } = useSidebar();
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box
-        position="absolute"
-        component="nav"
-        sx={{ flexShrink: { sm:0 }}}
-      >
         <Drawer
-          style={{width: drawerWidth,}}
           variant="temporary"
           open={isOpen}
           onClose={toggleSidebar}
           ModalProps={{ keepMounted: true }}
-          sx={{
-            display: {
-              xs: "block",
-              lg: "none",
-           },
-            "& .MuiDrawer-paper": {
-              height: `calc(100vh)`,
-              minHeight: `calc(100vh)`,
-              boxSizing: "border-box",
-              width: drawerWidth,
-              pb: 6,
-              "&:before":{
-                backgroundPosition: 'center center',
-                backgroundSize: 'cover',
-                backgroundImage:'url(/images/drawer.jpg)',
-                opacity: 0.7,
-                bgcolor: "transparent",
-                content: "' '",
-                display: "block",
-                position: "fixed",
-                left: 0,
-                top: 0,
-                width: drawerWidth,
-                minHeight: `calc(100vh)`,
-                zIndex: 0,
-                backgroundRepeat: "no-repeat",
-                pb: 6,
-              }
-            },
-          }}
-        >
-          <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between" }} >
-            <Logo  />
-            <IconButton onClick={toggleSidebar} >
-              <MdClose />
-            </IconButton>
-          </Toolbar>
-          <Divider color="white"/>
-          {/* <MenuDrawerList /> */}
-          {children}
-          {/* <Section {...{ onClose, open }} />  */}
+          >
+        <div className="realtive">
+          <div className={`
+              fixed
+              bg-[url('/images/drawer.jpg')]
+              bg-no-repeat
+              bg-cover
+              bg-top
+              w-64
+              h-screen
+            `}>
+          </div>
+              <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between", zIndex:100}} >
+                <Logo  />
+                <IconButton onClick={toggleSidebar} >
+                  <MdClose />
+                </IconButton>
+              </Toolbar>
+          <div className="h-screen">
+            {children}
+          </div>
+          </div>
         </Drawer>
 
-        <Drawer
-          variant="permanent"
-          open
-          sx={{
-            display: { xs: "none",
-            lg: "block",
-           },
-            "& .MuiDrawer-paper": {
-              borderRadius: 2,
-              height: `calc(98vh)`,
-              m:"1vh",
-              boxSizing: "border-box",
-              width: drawerWidth,
-              pb: 6,
-              // zIndex: 1,
-              "&:before":{
-                backgroundPosition: 'center center',
-                backgroundSize: 'cover',
-                backgroundImage:'url(/images/drawer.jpg)',
-                opacity: 0.7,
-                bgcolor: "transparent",
-                borderRadius: 2,
-                m:"1vh",
-                content: "' '",
-                display: "block",
-                position: "fixed",
-                left: 0,
-                top: 0,
-                width: drawerWidth,
-                height: `calc(98vh)`,
-                zIndex: 0,
-                backgroundRepeat: "no-repeat",
-                pb: 6,
-              }
-
-              // backgroundColor: "color.primary",
-            },
-          }}
+        <div className={`
+          fixed
+          h-[calc(100vh-16px)]
+          box-border
+          m-2
+          -mt-14
+          overflow-auto
+          lg:visible
+          invisible
+          `}
         >
-          {/* <Box sx={{zIndex: 1}}> */}
-          <Toolbar >
-            <Logo  />
-          </Toolbar>
-          <Divider color="white"/>
-          {children}
-            {/* <MenuDrawerList /> */}
-            {/* <Section {...{ onClose, open }} /> */}
-        </Drawer>
-      </Box>
+        <div className="realtive">
+          <div className={`
+              fixed
+              bg-[url('/images/drawer.jpg')]
+              bg-no-repeat
+              bg-cover
+              bg-top
+              w-64
+              rounded-md
+              h-[calc(100vh-16px)]
+            `}>
+          </div>
+              <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between", zIndex:100}} >
+                <Logo  />
+              </Toolbar>
+          <div className="h-screen">
+            {children}
+          </div>
+          </div>
+        </div>
     </ThemeProvider>
   );
 }
