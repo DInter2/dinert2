@@ -22,7 +22,7 @@ const AppBarHeader = ({ currentUser }: {currentUser: User}) => {
     className={`h-[${appBarHeight}] max-w-[98vw] z-10`}
     >
       <AppBar
-      className='z-10'
+          className='z-10'
           elevation={scrollPosition === 0 ? 0: 1}
           position="fixed"
           sx={{

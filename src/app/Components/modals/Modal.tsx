@@ -109,8 +109,8 @@ const Modal: React.FC<ModalProps> = ({
           >
             <div
               className={`
+              mt-16
               translate
-              lg:h-[80vh]
               md:h-[80vh]
               h-full
               z-50
