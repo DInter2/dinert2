@@ -90,7 +90,7 @@ const Modal: React.FC<ModalProps> = ({
             md:w-4/6
             lg:w-3/6
             xl:w-2/5
-
+            z-50
             mx-auto
             h-full
             lg:h-auto
@@ -113,6 +113,7 @@ const Modal: React.FC<ModalProps> = ({
               lg:h-[80vh]
               md:h-[80vh]
               h-full
+              z-50
               lg:ml-44
               border-0
               rounded-lg
