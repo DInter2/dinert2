@@ -5,6 +5,7 @@ import MarkdownView from "react-showdown";
 import { Fragment } from "react";
 import { Logo } from "./Components/layout/logo/Logo";
 import { appScriptUrl } from "@/lib/endpoint";
+import Carousel from "./[maneName]/[menuId]/components/carossel";
 
 export interface Todo {
     userId: number,
@@ -33,10 +34,10 @@ export  default async function Home() {
     }).map((session, i)=>(
           <ClientMarkdown key={i}>
           <MarkdownView
-            className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full"
+            className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full md:px-16 pb-2"
             markdown={session.content}
             options={{ tables: true, emoji: true, }}
-            components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord, Logo }}
+            components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord, Logo, Carousel }}
             />
         </ClientMarkdown>))}</Fragment>}
       </>

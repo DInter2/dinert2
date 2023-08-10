@@ -3,8 +3,8 @@ import React, { ReactNode, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSidebar } from '../../client/sidebar/Sidebar.Context';
 import { Collapse, useMediaQuery, useTheme } from '@mui/material';
-import { selectMenu } from './menus/selectMenusIcon';
-const DrawerClient = ({ index, title, children, id, link }: {link: boolean, index: number, title: string, id: string, children: ReactNode }) => {
+import { Menu } from '@/types/Menu';
+const DrawerClient = ({ children,  menu}: {menu: Menu, children: ReactNode }) => {
   const [expanded, setExpanded] = useState(false);
   const { isOpen, toggleSidebar } = useSidebar();
   const router = useRouter();
@@ -14,12 +14,10 @@ const DrawerClient = ({ index, title, children, id, link }: {link: boolean, inde
     if(isLargeScreen){
       toggleSidebar()
     }
-    router.push(title === "INÍCIO"? "/" :`/${title.toLowerCase()}/${id}`)
+    router.push(menu.link ?? "/")
   }
   let icons!: JSX.Element;
-  if(!link){
-    icons = selectMenu({index})
-  }
+
   return (
     <div className=" my-1 mx-2 box-border">
       <button
@@ -27,9 +25,9 @@ const DrawerClient = ({ index, title, children, id, link }: {link: boolean, inde
         style={{ backdropFilter: "blur(1px)" }}
         onClick={children!!? () => setExpanded(!expanded): handleClick }
       >
-      { icons }
+      { menu.icon }
       <div className='flex w-full ml-4 items-center justify-between'>
-        <span>{title}</span>
+        <span>{menu.title}</span>
       </div>
         {children!!? <svg
           className={`h-6 w-6 ${expanded ? 'transform rotate-180' : ''}`}

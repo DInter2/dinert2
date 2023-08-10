@@ -13,7 +13,6 @@ import { Logo } from "../logo/Logo";
 import { ReactNode } from "react";
 import { useSidebar } from "../../client/sidebar/Sidebar.Context";
 import { MdClose } from "react-icons/md"
-import zIndex from "@mui/material/styles/zIndex";
 
 
 type ResponsiveDrawerProps = {
@@ -55,13 +54,14 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
 
         <div className={`
           fixed
-          h-[calc(100vh-16px)]
+          h-[calc(100vh-20px)]
           box-border
           m-2
-          -mt-14
+          -mt-16
           overflow-auto
           lg:visible
           invisible
+          w-[66]
           `}
         >
         <div className="realtive">
@@ -73,13 +73,13 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               bg-top
               w-64
               rounded-md
-              h-[calc(100vh-16px)]
+              h-[calc(100vh-20px)]
             `}>
           </div>
               <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between", zIndex:100}} >
                 <Logo  />
               </Toolbar>
-          <div className="h-screen w-64">
+          <div className="w-64">
             {children}
           </div>
           </div>

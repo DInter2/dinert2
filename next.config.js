@@ -19,10 +19,15 @@ const nextConfig = {
         hostname: 'drive.google.com',
         port: '',
         pathname: '/**',
+      },{
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
       },
     ],
 
-    domains: ['lh3.google.com', "s3.amazonaws.com", "lh3.googleusercontent.com"],
+    domains: ['lh3.google.com', "s3.amazonaws.com", "lh3.googleusercontent.com", "via.placeholder.com"],
   },
   experimental: {
     appDir: true,

@@ -4,14 +4,19 @@ import { useRouter } from 'next/navigation';
 import { childName } from '@/app/core/splitName';
 import { TayTypography } from '../../widgets/TayTypography';
 import { useSidebar } from '@/app/Components/client/sidebar/Sidebar.Context';
-import Link from 'next/link';
+import { Menu } from '@/types/Menu';
 
 
-const DrawerSubMenu = ({ title, id }: { title: string, id: string }) => {
+const DrawerSubMenu = ({ Submenu }: { Submenu: Menu}) => {
   const router = useRouter();
   const { isOpen, toggleSidebar } = useSidebar();
+  const handleClick = () => {
+    if(isOpen){
+      toggleSidebar()
+    }
+    router.push(Submenu.link ?? "/")
+  }
   return (
-    <Link href={`/${title.toLowerCase()}/${id}`}>
       <div className="my-1 bg-amber-600w-full ml-2 box-border">
         <button
           className="flex hover:bg-orange-500
@@ -22,12 +27,11 @@ const DrawerSubMenu = ({ title, id }: { title: string, id: string }) => {
                       text-white hover:bg-opacity-100
                       focus:bg-orange-500"
           style={{ backdropFilter: "blur(1px)" }}
-          onClick={isOpen? toggleSidebar: () => null}
+          onClick={handleClick}
         >
-          <TayTypography variant="subtitle2"  display="block" gutterBottom={false}>{childName(title)}</TayTypography >
+          <TayTypography variant="subtitle2"  display="block" gutterBottom={false}>{childName(Submenu.title)}</TayTypography >
         </button>
       </div>
-    </Link>
   )
 }
 
