@@ -11,11 +11,11 @@ const SectionMenuLink = ({ folders, index }: {folders: FolderDto[], index: numbe
     {
       title: "OPERACIONAL",
       isOperation: true,
-      icon: <MdFireTruck />
+      icon: <MdFireTruck size={25} className='text-white'/>
     },{
       title: "DIVERSOS",
       isOperation: false,
-      icon: <MdAddToPhotos />
+      icon: <MdAddToPhotos size={25} className='text-white'/>
     }
   ]
   return sections[index]

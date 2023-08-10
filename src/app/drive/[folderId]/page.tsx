@@ -34,7 +34,7 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
 
   const data = await getDataById(folderId);
   return (
-    <Fragment>
+    <div>
     <BreadcrumbsClient folderPath={data.path} />
     {!data.files.length!! && !data.folders.length!! && !data.page.length!! && <EmptyState />}
       {data.page!! && <Fragment> {data.page.sort((a, b) => {
@@ -49,7 +49,7 @@ export default async  function DriveFolder({ params: { folderId }}: {params: {fo
           />
       </ClientMarkdown>))}</Fragment>}
       <Content  data={data} />
-    </Fragment>
+    </div>
   )
 }
 

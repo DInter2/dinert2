@@ -1,14 +1,11 @@
 'use client'
 import {
-  Box,
-  Divider,
   Drawer,
   IconButton,
   Toolbar,
 } from "@mui/material";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { darkTheme } from "../../client/theme/MuiTheme.Theme";
-import { drawerWidth } from "../../consts/drawerWidth";
 import { Logo } from "../logo/Logo";
 import { ReactNode } from "react";
 import { useSidebar } from "../../client/sidebar/Sidebar.Context";
@@ -29,7 +26,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
           onClose={toggleSidebar}
           ModalProps={{ keepMounted: true }}
           >
-        <div className="realtive">
+          <div className="realtive">
           <div className={`
               fixed
               bg-[url('/images/drawer.jpg')]
@@ -37,16 +34,18 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               bg-cover
               bg-top
               w-64
-              h-screen
+              h-[calc(100vh)]
             `}>
           </div>
-              <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between", zIndex:100}} >
+          <div className="fixed z-40 backdrop-blur-md w-64">
+              <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}} >
                 <Logo  />
                 <IconButton onClick={toggleSidebar} >
                   <MdClose />
                 </IconButton>
               </Toolbar>
-          <div className="h-screen">
+            </div>
+          <div className="w-64 pt-20 z-30">
             {children}
           </div>
           </div>
@@ -54,13 +53,13 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
 
         <div className={`
           fixed
-          h-[calc(100vh-20px)]
+          h-[calc(100vh-16px)]
           box-border
+          z-50
           m-2
-          -mt-16
           overflow-auto
-          lg:visible
-          invisible
+          lg:block
+          hidden
           w-[66]
           `}
         >
@@ -73,13 +72,15 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               bg-top
               w-64
               rounded-md
-              h-[calc(100vh-20px)]
+              h-[calc(100vh-16px)]
             `}>
           </div>
+            <div className="fixed z-40 backdrop-blur-md w-64 mt-2">
               <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between", zIndex:100}} >
                 <Logo  />
               </Toolbar>
-          <div className="w-64">
+            </div>
+          <div className="w-64 pt-24">
             {children}
           </div>
           </div>

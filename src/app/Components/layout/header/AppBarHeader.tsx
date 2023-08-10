@@ -18,11 +18,11 @@ const AppBarHeader = ({ currentUser }: {currentUser: User}) => {
     return () => window.removeEventListener('scroll', updatePosition);
   }, []);
   return (
-    <Box
-    height={appBarHeight}
-    sx={{maxWidth: "98vw"}}
+    <div
+    className={`h-[${appBarHeight}] max-w-[98vw] z-10`}
     >
       <AppBar
+      className='z-10'
           elevation={scrollPosition === 0 ? 0: 1}
           position="fixed"
           sx={{
@@ -38,7 +38,7 @@ const AppBarHeader = ({ currentUser }: {currentUser: User}) => {
         >
           <Header currentUser={currentUser} />
       </AppBar>
-    </Box>
+    </div>
   )
 }
 

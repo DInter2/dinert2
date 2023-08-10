@@ -15,8 +15,7 @@ export const ClientMarkdown = ({children }: {children: ReactNode}) => {
       py: { xs: 2},
       px:{ xs: 1},
       fontSize: "ms",
-      mb: 4,
-      mt: 2,
+      mb:4
     }}
     className="flex justify-center items-center"
     >

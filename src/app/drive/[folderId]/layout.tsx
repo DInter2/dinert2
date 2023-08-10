@@ -6,7 +6,7 @@ const FolderLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <div>
+    <div className="mx-auto pt-20 sm:px-6" >
       {children}
     </div>
   )

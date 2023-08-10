@@ -44,7 +44,7 @@ export default async  function DriveFolder({ params: { menuId }}: {params: {menu
         }).map((session, i)=>(
         <ClientMarkdown key={i}>
         <MarkdownView
-          className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full md:px-16  pb-2"
+          className="max-w-full overflow-x-auto scrollbar-thin markdown min-w-full md:px-16"
           markdown={session.content}
           options={{ tables: true, emoji: true, }}
           components={{ IconForm, IconDoc, IconSheet, IconExcel, IconWord, Carousel }}

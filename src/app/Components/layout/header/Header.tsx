@@ -38,7 +38,7 @@ export const Header = ({ currentUser }: {currentUser: User})  => {
       <Box sx={{ flexGrow: 1, display: "fex", alignItems: "center",justifyContent: "end" }} />
 
       <IconButton onClick={()=>{setIssearch(true)}}>
-        <GoSearch onClick={()=> searchModal.onOpen()}/>
+        {currentUser! && <GoSearch onClick={()=> searchModal.onOpen()}/>}
       </IconButton>
 
       <Box sx={{display:{xs: "fex", md: "none"}}}>

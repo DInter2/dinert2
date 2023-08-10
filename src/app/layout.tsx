@@ -49,7 +49,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
   const resp = await Promise.all([getDriveLinks()])
   return (
     <html lang="pt">
@@ -58,11 +58,11 @@ export default async function RootLayout({
         <RegisterModal />
         <LoginModal />
         <SearchModal/>
-          <AppBarHeader currentUser={null}/>
-            <ResponsiveDrawer>
-                <DrawerServerSubmenuMaping link={false} data={menu}/>
-                {/* {currentUser!&& resp[0].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)} */}
-            </ResponsiveDrawer>
+          <ResponsiveDrawer>
+              <DrawerServerSubmenuMaping link={false} data={menu}/>
+              {currentUser!&& resp[0].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
+          </ResponsiveDrawer>
+          <AppBarHeader currentUser={currentUser}/>
           <MainContent >
             { children }
           </MainContent>
