@@ -1,71 +1,66 @@
-"use client";
+'use client';
 
-import { useCallback, useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import {
+  FieldValues,
+  SubmitHandler,
+  useForm
+} from "react-hook-form";
+
 import Modal from "./Modal";
-import Input from "../Inputs/Input"
-import toast from "react-hot-toast";
 import useLoginModal from "../client/hooks/useLoginModal";
-import useRegisterModal from "../client/hooks/useRegisterModal";
 import Heading from "../emptyState/Heading";
-import { SignIn } from "@/app/actions/SignIn";
-
-// Server action defined inside a Server Component
-
+import Input from "../Inputs/Input";
+import axios, { AxiosError } from "axios";
+import { toast } from "react-hot-toast";
+import { useRouter } from 'next/navigation'
 
 const LoginModal = () => {
-  const router = useRouter();
+  const router = useRouter()
   const loginModal = useLoginModal();
-  const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {
+      errors,
+    },
   } = useForm<FieldValues>({
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: ''
     },
   });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-    SignIn({data}).then((response)=>{
-      setIsLoading(false);
-    });
 
-    // signIn("credentials", {
-    //   ...data,
-    //   redirect: false,
-    // }).then((response) => {
-    //   setIsLoading(false);
-
-    //   if (response?.ok) {
-    //     toast.success("Logged in successfully");
-    //     router.refresh();
-    //     loginModal.onClose();
-    //   }
-
-    //   if (response?.error) {
-    //     toast.error(response.error);
-    //   }
-    // });
+    axios
+      .post("/api/login", data)
+      .then(() => {
+        toast.success("Logado com sucesso!");
+        router.refresh()
+        loginModal.onClose();
+      })
+      .catch((error) => {
+       const axiosError =  (error as AxiosError);
+        console.log(axiosError.code)
+        toast.error("senha ou email incorreto");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
-
-  const toggle = useCallback(() => {
-    loginModal.onClose();
-    registerModal.onOpen();
-  }, [loginModal, registerModal]);
-
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome back" subtitle="Login to your account" />
+      <Heading
+        title="Welcome back"
+        subtitle="Login to your account!"
+      />
       <Input
         id="email"
-        label="Email address"
+        label="Email"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -74,41 +69,33 @@ const LoginModal = () => {
       <Input
         id="password"
         label="Password"
+        type="password"
         disabled={isLoading}
         register={register}
         errors={errors}
         required
       />
     </div>
-  );
+  )
 
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
-      <div
-        className="
-        text-neutral-500
-        text-center
-        mt-4
-        font-light
-        "
-      >
-        <div className="flex flex-row items-center justify-center gap-2">
-          <div>First time using Airbnb?</div>
-          <div
-            onClick={toggle}
+      <div className="
+      text-neutral-500 text-center mt-4 font-light">
+        <p>First time using Airbnb?
+          <span
             className="
-            text-neutral-800
-            cursor-pointer
-            hover:underline
+              text-neutral-800
+              cursor-pointer
+              hover:underline
             "
-          >
-            Create an account
-          </div>
-        </div>
+            > Create an account</span>
+        </p>
       </div>
     </div>
-  );
+  )
+
   return (
     <Modal
       disabled={isLoading}
@@ -121,6 +108,6 @@ const LoginModal = () => {
       footer={footerContent}
     />
   );
-};
+}
 
 export default LoginModal;

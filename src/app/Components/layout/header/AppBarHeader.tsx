@@ -6,7 +6,7 @@ import { drawerWidth } from '../../consts/drawerWidth'
 import { Header } from './Header'
 import { User } from '@/types/user'
 
-const AppBarHeader = ({ currentUser }: {currentUser: User}) => {
+const AppBarHeader = ({ currentUser }: {currentUser: string | null}) => {
   const [scrollPosition, setPosition] = useState(0);
 
   useLayoutEffect(() => {

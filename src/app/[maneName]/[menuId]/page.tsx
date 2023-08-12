@@ -24,8 +24,8 @@ export interface Folder{
 async function getDataById(menuId: string): Promise<FolderDto> {
   const res = await fetch(
     `${appScriptUrl}?folderId=${menuId}`,
-    {cache: "no-cache"}
-    // {next: {revalidate: 60}}
+    // {cache: "no-cache"}
+    {next: {revalidate: 60}}
     );
   if (!res.ok) {
     throw new Error('Failed to fetch data');

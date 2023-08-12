@@ -1,37 +1,23 @@
-import { getServerSession } from "next-auth/next"
+import { auth } from "firebase-admin";
+import { cookies } from "next/headers";
 
-import prisma from "@/app/libs/prismadb";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-
-export async function getSession() {
-  return await getServerSession(authOptions)
-}
 
 export default async function getCurrentUser() {
   try {
-    const session = await getSession();
-    if (!session?.user?.email) {
+    const session =  cookies().get("session")?.value || "";
+    if(!session!){
       return null;
     }
 
-    const currentUser = await prisma.user.findUnique({
-      where: {
-        email: session.user.email as string,
-      }
-    });
-
-    if (!currentUser) {
-      return null;
+    const decodedClaims = await auth().verifyIdToken(session);
+    if (!decodedClaims!) {
+      return null;;
     }
-
     return {
-      ...currentUser,
-      createdAt: currentUser.createdAt.toISOString(),
-      updatedAt: currentUser.updatedAt.toISOString(),
-      emailVerified:
-        currentUser.emailVerified?.toISOString() || null,
+      email: decodedClaims.email
     };
   } catch (error: any) {
+    console.log(error)
     return null;
   }
 }

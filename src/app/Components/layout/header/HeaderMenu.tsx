@@ -3,18 +3,18 @@
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { FormControlLabel, IconButton, Switch } from '@mui/material';
+import { IconButton, Switch } from '@mui/material';
 import { styled } from '@mui/system';
-import { CustonThemeContext } from '../../client/theme/MuiTheme.Context';
 import { IoMdMore } from 'react-icons/io';
-import { MdExitToApp } from 'react-icons/md';
-import { signIn, signOut } from 'next-auth/react';
-import { User } from '@/types/user';
-import Avatar from './Avatar';
+import useLoginModal from '../../client/hooks/useLoginModal';
+import axios, { AxiosError } from 'axios';
+import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation'
 
-export default function HeaderMenu({ currentUser }: {currentUser: User}) {
-  const { theme, toggleTheme } =  React.useContext(CustonThemeContext);
+export default function HeaderMenu({ currentUser }: {currentUser: string | null}) {
+  const router = useRouter()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const loginModal = useLoginModal();
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -23,12 +23,25 @@ export default function HeaderMenu({ currentUser }: {currentUser: User}) {
     setAnchorEl(null);
 
   };
-  const handleShecked = (event: React.SyntheticEvent<Element, Event>, checked: boolean) => {
-    toggleTheme(checked);
-  }
   const handleLogOut = () => {
     setAnchorEl(null);
   }
+  const signout = () => {
+    axios
+      .post("/api/signout")
+      .then(() => {
+        toast.success("Deslogado com sucesso!");
+        router.refresh()
+      })
+      .catch((error) => {
+       const axiosError =  (error as AxiosError);
+        console.log(axiosError.code)
+        toast.error("senha ou email incorreto");
+      })
+      .finally(() => {
+
+      });
+  };
 
   return (
     <div>
@@ -57,19 +70,14 @@ export default function HeaderMenu({ currentUser }: {currentUser: User}) {
           horizontal: 'left',
         }}
         >
-          <Avatar onClick={handleClick} src={currentUser?.image}/>
-        {/* <MenuItem sx={{borderRadius: 2,  mx: 1}}>
-          <FormControlLabel
-          onChange={handleShecked}
-          control={<MaterialUISwitch checked={theme.palette.mode === 'dark'} theme={theme} />}
-          label=""
-          />
-        </MenuItem > */}
+          {currentUser! && <h2 className='p-2'>
+            {currentUser}
+          </h2>}
         {
           currentUser!
           ?<MenuItem onClick={()=>{
               handleLogOut();
-              signOut()
+              signout()
               }} sx={{borderRadius: 2,  mx: 1}}>
                  <div
                 className='dark:text-gray-900'
@@ -78,7 +86,7 @@ export default function HeaderMenu({ currentUser }: {currentUser: User}) {
             </MenuItem>
           :<MenuItem onClick={()=> {
             handleClose();
-              signIn('google');
+            loginModal.onOpen();
             }} sx={{borderRadius: 2,  mx: 1, p: 1}}>
             <div
               className='dark:text-gray-900'

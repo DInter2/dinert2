@@ -1,12 +1,13 @@
 'use client'
-import { signIn } from 'next-auth/react';
 import React, { useEffect } from 'react'
 import Loading from '../loading';
+import { useRouter } from 'next/navigation'
 
 const NotAutarized = () => {
+  const router = useRouter()
   useEffect(() => {
     (async () =>{
-      await signIn('google');
+      router.push("/");
     })();
   },)
 

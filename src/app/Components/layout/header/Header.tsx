@@ -9,12 +9,12 @@ import SocialIcons from './SocialIcons';
 import HeaderMenu from './HeaderMenu';
 import { useSidebar } from '../../client/sidebar/Sidebar.Context';
 import useSearchModal from '../../client/hooks/useSearchModal';
-import { User } from '@/types/user';
 
-export const Header = ({ currentUser }: {currentUser: User})  => {
+export const Header = ({ currentUser }: {currentUser: string | null})  => {
   const { isOpen, toggleSidebar } = useSidebar();
   const [ isSearch, setIssearch] = useState(false);
   const searchModal = useSearchModal()
+
   return (
     <Toolbar  variant="regular">
       <IconButton

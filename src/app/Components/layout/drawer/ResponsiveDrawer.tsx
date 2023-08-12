@@ -61,9 +61,10 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
           lg:block
           hidden
           w-[66]
+          shadow-lg
           `}
         >
-        <div className="realtive">
+        <div className="realtive shadow-lg">
           <div className={`
               fixed
               bg-[url('/images/drawer.jpg')]
@@ -73,9 +74,10 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
               w-64
               rounded-md
               h-[calc(100vh-16px)]
+              shadow-lg
             `}>
           </div>
-            <div className="fixed z-40 backdrop-blur-md w-64 mt-2">
+            <div className="fixed z-40 backdrop-blur-md w-64 mt-2 shadow-md">
               <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between", zIndex:100}} >
                 <Logo  />
               </Toolbar>
