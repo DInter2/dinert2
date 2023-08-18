@@ -55,8 +55,8 @@ const LoginModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome back"
-        subtitle="Login to your account!"
+        title="Bem-vindo"
+        subtitle="Faça login na sua conta!"
       />
       <Input
         id="email"
@@ -83,14 +83,14 @@ const LoginModal = () => {
       <hr />
       <div className="
       text-neutral-500 text-center mt-4 font-light">
-        <p>First time using Airbnb?
+        <p>Ainda não tem conta?
           <span
             className="
               text-neutral-800
               cursor-pointer
               hover:underline
             "
-            > Create an account</span>
+            > Entre em contato com a DInter2</span>
         </p>
       </div>
     </div>
