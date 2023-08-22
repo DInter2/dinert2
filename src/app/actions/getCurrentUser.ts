@@ -23,7 +23,7 @@ export default async function getCurrentUser(): Promise<AuthUser> {
     if (!session?.user?.email) {
       return null;
     }
-    const currentUser = await auth().getUserByEmail("cefascavalcanti@gmail.com");
+    const currentUser = await auth().getUserByEmail(session.user.email);
     if (!currentUser.email) {
       return null;
     }

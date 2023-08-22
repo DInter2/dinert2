@@ -38,7 +38,6 @@ export default async function RootLayout({
 }) {
 
   const currentUser: AuthUser = await getCurrentUser();
-  console.log(currentUser);
   const resp = await Promise.all([getDriveLinks()])
   return (
     <html lang="pt">
