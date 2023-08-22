@@ -9,8 +9,9 @@ import SocialIcons from './SocialIcons';
 import HeaderMenu from './HeaderMenu';
 import { useSidebar } from '../../client/sidebar/Sidebar.Context';
 import useSearchModal from '../../client/hooks/useSearchModal';
+import { AuthUser } from '@/app/actions/getCurrentUser';
 
-export const Header = ({ currentUser }: {currentUser: string | null})  => {
+export const Header = ({ currentUser }: {currentUser: AuthUser})  => {
   const { isOpen, toggleSidebar } = useSidebar();
   const [ isSearch, setIssearch] = useState(false);
   const searchModal = useSearchModal()

@@ -11,8 +11,9 @@ import RegisterModal from './Components/modals/RegisterModal'
 import LoginModal from './Components/modals/LoginModal'
 import SearchModal from './Components/modals/SearchModal'
 import { menu } from './Components/layout/drawer/menus'
-import getCurrentUser from './actions/getCurrentUser'
+import getCurrentUser, { AuthUser } from './actions/getCurrentUser'
 import SectionMenuLink from './Components/layout/drawer/link/SectionMenuLink'
+import { UserRecord } from 'firebase-admin/lib/auth/user-record'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,9 +36,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  let email: string | null = "";
-  const currentUser = await getCurrentUser();
-  if(currentUser!=null) email = currentUser.email ?? null;
+
+  const currentUser: AuthUser = await getCurrentUser();
+  console.log(currentUser);
   const resp = await Promise.all([getDriveLinks()])
   return (
     <html lang="pt">
@@ -50,7 +51,7 @@ export default async function RootLayout({
               <DrawerServerSubmenuMaping link={false} data={menu}/>
               {currentUser!&& resp[0].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index}/>)}
           </ResponsiveDrawer>
-          <AppBarHeader currentUser={email}/>
+          <AppBarHeader currentUser={currentUser}/>
           <MainContent >
             { children }
 

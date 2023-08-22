@@ -6,12 +6,11 @@ import {
   SubmitHandler,
   useForm
 } from "react-hook-form";
-
+import { signIn } from 'next-auth/react';
 import Modal from "./Modal";
 import useLoginModal from "../client/hooks/useLoginModal";
 import Heading from "../emptyState/Heading";
 import Input from "../Inputs/Input";
-import axios, { AxiosError } from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from 'next/navigation'
 
@@ -33,25 +32,29 @@ const LoginModal = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> =
+  (data) => {
     setIsLoading(true);
 
-    axios
-      .post("/api/login", data)
-      .then(() => {
-        toast.success("Logado com sucesso!");
-        router.refresh()
+    signIn('credentials', {
+      ...data,
+      redirect: false,
+    })
+    .then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success('Logged in');
+        router.refresh();
         loginModal.onClose();
-      })
-      .catch((error) => {
-       const axiosError =  (error as AxiosError);
-        console.log(axiosError.code)
-        toast.error("senha ou email incorreto");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
+  }
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading

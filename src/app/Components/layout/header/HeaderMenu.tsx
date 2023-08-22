@@ -7,12 +7,11 @@ import { IconButton, Switch } from '@mui/material';
 import { styled } from '@mui/system';
 import { IoMdMore } from 'react-icons/io';
 import useLoginModal from '../../client/hooks/useLoginModal';
-import axios, { AxiosError } from 'axios';
 import { toast } from 'react-hot-toast';
-import { useRouter } from 'next/navigation'
+import { signOut } from "next-auth/react";
+import { AuthUser } from '@/app/actions/getCurrentUser';
 
-export default function HeaderMenu({ currentUser }: {currentUser: string | null}) {
-  const router = useRouter()
+export default function HeaderMenu({ currentUser }: {currentUser: AuthUser}) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const loginModal = useLoginModal();
   const open = Boolean(anchorEl);
@@ -27,20 +26,7 @@ export default function HeaderMenu({ currentUser }: {currentUser: string | null}
     setAnchorEl(null);
   }
   const signout = () => {
-    axios
-      .post("/api/signout")
-      .then(() => {
-        toast.success("Deslogado com sucesso!");
-        router.refresh()
-      })
-      .catch((error) => {
-       const axiosError =  (error as AxiosError);
-        console.log(axiosError.code)
-        toast.error("senha ou email incorreto");
-      })
-      .finally(() => {
-
-      });
+    signOut();
   };
 
   return (
@@ -71,7 +57,7 @@ export default function HeaderMenu({ currentUser }: {currentUser: string | null}
         }}
         >
           {currentUser! && <h2 className='p-2'>
-            {currentUser}
+            {currentUser.email}
           </h2>}
         {
           currentUser!

@@ -4,9 +4,9 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
-
 import prisma from "@/app/libs/prismadb"
-import { profile } from "console"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "@/app/libs/firebase-config"
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -34,31 +34,44 @@ export const authOptions: AuthOptions = {
         email: { label: 'email', type: 'text' },
         password: { label: 'password', type: 'password' }
       },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error('Invalid credentials');
-        }
+      async authorize(credentials):Promise<any> {
+        return await signInWithEmailAndPassword(auth, (credentials as any).email || '', (credentials as any).password || '')
+          .then(userCredential => {
+            if (userCredential.user) {
+              return userCredential.user;
+            }
+            return null;
+          })
+          .catch(error => (console.log(error)))
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(error);
+  });
+      //   if (!credentials?.email || !credentials?.password) {
+      //     throw new Error('Invalid credentials');
+      //   }
 
-        const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email
-          }
-        });
+      //   const user = await prisma.user.findUnique({
+      //     where: {
+      //       email: credentials.email
+      //     }
+      //   });
 
-        if (!user || !user?.hashedPassword) {
-          throw new Error('Invalid credentials');
-        }
+      //   if (!user || !user?.hashedPassword) {
+      //     throw new Error('Invalid credentials');
+      //   }
 
-        const isCorrectPassword = await bcrypt.compare(
-          credentials.password,
-          user.hashedPassword
-        );
+      //   const isCorrectPassword = await bcrypt.compare(
+      //     credentials.password,
+      //     user.hashedPassword
+      //   );
 
-        if (!isCorrectPassword) {
-          throw new Error('Invalid credentials');
-        }
+      //   if (!isCorrectPassword) {
+      //     throw new Error('Invalid credentials');
+      //   }
 
-        return user;
+      //   return user;
       }
     })
   ],

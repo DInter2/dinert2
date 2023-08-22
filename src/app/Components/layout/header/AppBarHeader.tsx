@@ -4,9 +4,9 @@ import React, { useLayoutEffect, useState } from 'react'
 import { appBarHeight } from '../../consts/appBarHeigth'
 import { drawerWidth } from '../../consts/drawerWidth'
 import { Header } from './Header'
-import { User } from '@/types/user'
+import { AuthUser } from '@/app/actions/getCurrentUser'
 
-const AppBarHeader = ({ currentUser }: {currentUser: string | null}) => {
+const AppBarHeader = ({ currentUser }: {currentUser: AuthUser}) => {
   const [scrollPosition, setPosition] = useState(0);
 
   useLayoutEffect(() => {
