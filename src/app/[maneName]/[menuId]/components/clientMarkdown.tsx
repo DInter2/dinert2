@@ -1,6 +1,5 @@
 'use client'
 import { drawerWidth } from "@/app/Components/consts/drawerWidth";
-import Progresindicate from "@/app/Components/widgets/skeleton/Progresindicate";
 import { Paper } from "@mui/material";
 import { ReactNode, useEffect, useState } from "react";
 

@@ -16,7 +16,6 @@ const DrawerClient = ({ children,  menu}: {menu: Menu, children: ReactNode }) =>
     }
     router.push(menu.link ?? "/")
   }
-  let icons!: JSX.Element;
 
   return (
     <div className=" my-1 mx-2 box-border">
