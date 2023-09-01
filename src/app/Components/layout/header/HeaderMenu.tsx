@@ -4,10 +4,9 @@ import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { IconButton, Switch } from '@mui/material';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material';
 import { IoMdMore } from 'react-icons/io';
 import useLoginModal from '../../client/hooks/useLoginModal';
-import { toast } from 'react-hot-toast';
 import { signOut } from "next-auth/react";
 import { AuthUser } from '@/app/actions/getCurrentUser';
 

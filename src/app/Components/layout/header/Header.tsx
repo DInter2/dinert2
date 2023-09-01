@@ -1,6 +1,6 @@
 'use client'
 import { IconButton, Toolbar  } from '@mui/material';
-import { Box } from '@mui/system';
+import { Box } from '@mui/material';
 import { useState } from 'react';
 import { Logo } from '../logo/Logo';
 import { GoSearch } from 'react-icons/go';
