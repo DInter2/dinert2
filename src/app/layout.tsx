@@ -14,6 +14,7 @@ import { menu } from './Components/layout/drawer/menus'
 import getCurrentUser, { AuthUser } from './actions/getCurrentUser'
 import SectionMenuLink from './Components/layout/drawer/link/SectionMenuLink'
 import { UserRecord } from 'firebase-admin/lib/auth/user-record'
+import PostModal from './Components/modals/PostModal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,6 +46,7 @@ export default async function RootLayout({
         <MuiThemeClient>
         <RegisterModal />
         <LoginModal />
+        <PostModal />
         <SearchModal/>
           <ResponsiveDrawer>
               <DrawerServerSubmenuMaping link={false} data={menu}/>

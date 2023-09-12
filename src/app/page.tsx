@@ -5,7 +5,7 @@ import MarkdownView from "react-showdown";
 import { Fragment } from "react";
 import { Logo } from "./Components/layout/logo/Logo";
 import { appScriptUrl } from "@/lib/endpoint";
-import Carousel from "./[maneName]/[menuId]/components/carossel";
+import Carousel from "./Components/widgets/carossel";
 
 export interface Todo {
     userId: number,

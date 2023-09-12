@@ -5,7 +5,7 @@ import { IconForm,  IconDoc, IconSheet, IconExcel, IconWord } from "@/app/Compon
 import { Fragment } from "react";
 import { appScriptUrl } from "@/lib/endpoint";
 import EmptyState from "@/app/Components/emptyState/EmptyState";
-import Carousel from "./components/carossel";
+import Carousel from "../../Components/widgets/carossel";
 
 export interface Todo {
     userId: number,
