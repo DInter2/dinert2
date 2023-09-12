@@ -1,5 +1,4 @@
 'use client'
-
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,7 +9,7 @@ import useLoginModal from '../../client/hooks/useLoginModal';
 import { signOut } from "next-auth/react";
 import { AuthUser } from '@/app/actions/getCurrentUser';
 
-export default function HeaderMenu({ currentUser }: {currentUser: AuthUser}) {
+export default function AppBarMenu({ currentUser }: {currentUser: AuthUser}) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const loginModal = useLoginModal();
   const open = Boolean(anchorEl);

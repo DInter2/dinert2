@@ -49,14 +49,8 @@ const estatistica: Menu = {
   ]
 }
 const event: Menu = {
-
+  link: "/post",
   title: "EVENTOS",
-  subMenu:[
-    {
-    link: "EVENTOS/1UlcCJyGzRkxa6ikMrItFO1BHmtynFOrI",
-    title: "DINTER 2",
-     }
-  ]
 }
 export  const menu: Menu[] = [
   {

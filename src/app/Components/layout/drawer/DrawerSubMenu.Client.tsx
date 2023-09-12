@@ -3,19 +3,17 @@ import React from 'react'
 
 import { childName } from '@/app/core/splitName';
 import { TayTypography } from '../../widgets/TayTypography';
-import { useSidebar } from '@/app/Components/client/sidebar/Sidebar.Context';
 import { Menu } from '@/types/Menu';
 import { useRouter } from 'next/navigation';
+import useMenuDawer from '../../client/hooks/useMenuDrawer';
 
 
 const DrawerSubMenu = ({ Submenu }: { Submenu: Menu}) => {
   const router = useRouter();
-  const { isOpen, toggleSidebar } = useSidebar();
+  const menuDrawer = useMenuDawer()
   const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    if(isOpen){
-      toggleSidebar()
-    }
+    menuDrawer.onClose();
   router.replace(`/${Submenu.link}` ?? "/")
   }
   return (

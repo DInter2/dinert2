@@ -1,6 +1,5 @@
 import { appScriptUrl } from "@/lib/endpoint";
 import { FolderDto } from "@/types/Folder";
-import { Fragment } from "react";
 import EmptyState from "../Components/emptyState/EmptyState";
 import { PostCard } from "./components/PostCard";
 import { PostLink } from "./components/PostLink";
@@ -37,7 +36,7 @@ export default async  function DriveFolder() {
   return (
     <div>
     {!data.page.length!! && <EmptyState />}
-      {data.page!! && <div className="grid grid-cols-3 gap-4"> 
+      {data.page!! && <div className="grid grid-cols-1 bg-slate-100 p-4 gap-4 md:grid-cols-3"> 
       {data.page.sort((a, b) => {
           return a.name.localeCompare(b.name);
         }).reverse().map((post, i)=>(

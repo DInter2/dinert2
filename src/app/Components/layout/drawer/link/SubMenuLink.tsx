@@ -1,5 +1,4 @@
 'use client'
-import { useSidebar } from "@/app/Components/client/sidebar/Sidebar.Context";
 import { FolderDto } from "@/types/Folder";
 import { List, ListItemButton, ListItemText, Typography } from "@mui/material"
 import Link from "next/link";
@@ -10,7 +9,6 @@ type Props = {
   menu: FolderDto;
 }
 const DiretoryDrawer = ({ onClick, menu}: Props) =>  {
-  const { isOpen, toggleSidebar } = useSidebar();
   const url = useRouter()
   const isActive = decodeURI(url.asPath).includes(`/drive/${menu.id}`);
   return (

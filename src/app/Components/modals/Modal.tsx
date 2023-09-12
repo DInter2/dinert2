@@ -87,8 +87,6 @@ const Modal: React.FC<ModalProps> = ({
             box-border
             w-full
             md:w-5/6
-            lg:w-4/6
-            xl:w-9/12
             z-50
             mx-auto
             h-full
@@ -108,13 +106,11 @@ const Modal: React.FC<ModalProps> = ({
           >
             <div
               className={`
-              mt-16
+              mt-0
               md:mt-0
               translate
               md:h-[95vh]
-              h-full
-              z-50
-              lg:ml-40
+              h-screen
               border-0
               rounded-lg
               shadow-lg

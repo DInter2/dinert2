@@ -1,20 +1,16 @@
 'use client'
 import React, { ReactNode, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSidebar } from '../../client/sidebar/Sidebar.Context';
-import { Collapse, useMediaQuery, useTheme } from '@mui/material';
+import { Collapse } from '@mui/material';
 import { Menu } from '@/types/Menu';
+import useMenuDawer from '../../client/hooks/useMenuDrawer';
 const DrawerClient = ({ children,  menu}: {menu: Menu, children: ReactNode }) => {
   const [expanded, setExpanded] = useState(false);
-  const { isOpen, toggleSidebar } = useSidebar();
   const router = useRouter();
-  const theme = useTheme();
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
+  const menuDrawer = useMenuDawer()
   const handleClick = () => {
-    if(isLargeScreen){
-      toggleSidebar()
-    }
-    router.push(menu.link ?? "/")
+    menuDrawer.onClose()
+    router.replace(menu.link ?? "/")
   }
 
   return (

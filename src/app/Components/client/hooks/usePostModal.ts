@@ -1,3 +1,4 @@
+'use client'
 import { create } from "zustand";
 
 interface PostModalState {
@@ -9,8 +10,12 @@ interface PostModalState {
 
 const usePostModal = create<PostModalState>((set) => ({
   isOpen: false,
-  onOpen: (post) => set({ isOpen: true, post }),
-  onClose: () => set({ isOpen: false }),
+  onOpen: (post) =>{ 
+    document.body.style.overflow = 'hidden';
+    set({ isOpen: true, post })},
+  onClose: () => {
+    document.body.style.overflow = 'auto';
+    set({ isOpen: false })},
   post: {content: "", title: ""}
 }));
 
