@@ -1,20 +1,20 @@
 'use client'
 import React from 'react'
-import { useRouter } from 'next/navigation';
+
 import { childName } from '@/app/core/splitName';
 import { TayTypography } from '../../widgets/TayTypography';
-import { useSidebar } from '@/app/Components/client/sidebar/Sidebar.Context';
 import { Menu } from '@/types/Menu';
+import { useRouter } from 'next/navigation';
+import useMenuDawer from '../../client/hooks/useMenuDrawer';
 
 
 const DrawerSubMenu = ({ Submenu }: { Submenu: Menu}) => {
   const router = useRouter();
-  const { isOpen, toggleSidebar } = useSidebar();
-  const handleClick = () => {
-    if(isOpen){
-      toggleSidebar()
-    }
-    router.push(Submenu.link ?? "/")
+  const menuDrawer = useMenuDawer()
+  const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    menuDrawer.onClose();
+  router.replace(`/${Submenu.link}` ?? "/")
   }
   return (
       <div className="my-1 bg-amber-600w-full ml-2 box-border">

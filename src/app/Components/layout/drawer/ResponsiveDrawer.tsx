@@ -8,22 +8,18 @@ import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { darkTheme } from "../../client/theme/MuiTheme.Theme";
 import { Logo } from "../logo/Logo";
 import { ReactNode } from "react";
-import { useSidebar } from "../../client/sidebar/Sidebar.Context";
 import { MdClose } from "react-icons/md"
+import useMenuDawer from "../../client/hooks/useMenuDrawer";
 
 
-type ResponsiveDrawerProps = {
-  open: boolean;
-  onClose: ((event: {}, reason: "backdropClick" | "escapeKeyDown") => void);
-}
 export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
-  const { isOpen, toggleSidebar } = useSidebar();
+  const menuDrawer = useMenuDawer()
   return (
     <ThemeProvider theme={darkTheme}>
         <Drawer
           variant="temporary"
-          open={isOpen}
-          onClose={toggleSidebar}
+          open={menuDrawer.isOpen}
+          onClose={menuDrawer.onClose}
           ModalProps={{ keepMounted: true }}
           >
           <div className="realtive">
@@ -40,7 +36,7 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
           <div className="fixed z-40 backdrop-blur-md w-64">
               <Toolbar sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}} >
                 <Logo  />
-                <IconButton onClick={toggleSidebar} >
+                <IconButton onClick={menuDrawer.onClose} >
                   <MdClose />
                 </IconButton>
               </Toolbar>
@@ -55,7 +51,6 @@ export default function ResponsiveDrawer({children}:{ children: ReactNode }) {
           fixed
           h-[calc(100vh-16px)]
           box-border
-          z-50
           m-2
           overflow-auto
           lg:block

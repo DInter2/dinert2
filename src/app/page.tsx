@@ -5,7 +5,7 @@ import MarkdownView from "react-showdown";
 import { Fragment } from "react";
 import { Logo } from "./Components/layout/logo/Logo";
 import { appScriptUrl } from "@/lib/endpoint";
-import Carousel from "./[maneName]/[menuId]/components/carossel";
+import Carousel from "./Components/widgets/carossel";
 
 export interface Todo {
     userId: number,
@@ -28,7 +28,7 @@ async function getDriveLinks() :Promise<FolderDto>{
 export  default async function Home() {
   const folder = await getDriveLinks()
   return (
-    <div className="pt-20">
+    <div className="pt-24">
     {folder.page! && <Fragment> {folder.page.sort((a, b) => {
     return a.name.localeCompare(b.name);
     }).map((session, i)=>(

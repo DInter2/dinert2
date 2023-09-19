@@ -1,21 +1,22 @@
 'use client'
 import { Box, Collapse, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import React, { useState } from 'react'
-import { useSidebar } from "@/app/Components/client/sidebar/Sidebar.Context";
 import { FolderDto } from "@/types/Folder";
 import { useRouter } from "next/navigation";
+import useMenuDawer from "@/app/Components/client/hooks/useMenuDrawer";
 type OpenProps = {
   open: boolean;
   key: string;
 }
 
 const MenuLink = ({ folder }: {folder: FolderDto[]}) => {
-  const { isOpen, toggleSidebar } = useSidebar();
+  const menuDrawer = useMenuDawer()
+
   const router = useRouter();
   const handleOpenMenu = (id: string, title: string)=>{
     router.push(`/drive/${id}?title=${title}`)
-    if(isOpen){
-      toggleSidebar()
+    if(menuDrawer.isOpen){
+      menuDrawer.onClose()
     }
   }
   return (

@@ -79,7 +79,6 @@ const Modal: React.FC<ModalProps> = ({
           outline-none
           focus:outline-none
           bg-neutral-800/70
-
         "
       >
         <div
@@ -87,9 +86,7 @@ const Modal: React.FC<ModalProps> = ({
             relative
             box-border
             w-full
-            md:w-4/6
-            lg:w-3/6
-            xl:w-2/5
+            md:w-5/6
             z-50
             mx-auto
             h-full
@@ -109,12 +106,11 @@ const Modal: React.FC<ModalProps> = ({
           >
             <div
               className={`
-              mt-16
+              mt-0
+              md:mt-0
               translate
-              md:h-[80vh]
-              h-full
-              z-50
-              lg:ml-44
+              md:h-[95vh]
+              h-screen
               border-0
               rounded-lg
               shadow-lg
@@ -158,13 +154,14 @@ const Modal: React.FC<ModalProps> = ({
                   className="
                     text-lg
                     font-semibold
+                    mx-16
                   "
                 >
                   {title}
                 </div>
               </div>
               {/*body*/}
-              <div className="relative p-6 flex-auto">{body}</div>
+              <div className="relative p-6 flex-auto bg-orange-100 overflow-y-auto">{body}</div>
               {/*footer*/}
               <div className="flex flex-col gap-2 p-6">
                 <div
