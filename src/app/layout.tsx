@@ -49,7 +49,7 @@ export default async function RootLayout({
           <DrawerServerSubmenuMaping link={false} data={menu} />
           {currentUser! && resp[0].folders.map((folder, index) => <SectionMenuLink key={folder.id} folders={folder.folders} index={index} />)}
         </ResponsiveDrawer>
-        <div className='max-w-screen bg-gray-100 h-full'>
+        <div className='max-w-screen h-full'>
           <AppBar.root>
             <AppBar.drawerButon />
             <AppBar.nav>
