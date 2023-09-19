@@ -1,7 +1,7 @@
 'use client'
 import React, { ReactNode, useLayoutEffect, useState } from 'react'
 
-export const AppBarRoot = ({ children }: { children: ReactNode}) => {
+export const AppBarRoot = ({ children }: { children: ReactNode }) => {
   const [scrollPosition, setPosition] = useState(0);
   useLayoutEffect(() => {
     function updatePosition() {
@@ -13,11 +13,11 @@ export const AppBarRoot = ({ children }: { children: ReactNode}) => {
   }, []);
   return (
     <header
-    className={`h-20 fixed w-[98vw] lg:w-[calc(98vw-270px)] lg:ml-[calc(270px+1vw)] box-border pl-[-2] p-2`}
+      className={`h-20 fixed w-[98vw] lg:w-[calc(98vw-270px)] lg:ml-[calc(270px+1vw)] box-border pl-[-2] p-2 z-10`}
     >
       <div
-          className={`
-          ${scrollPosition === 0 
+        className={`
+          ${scrollPosition === 0
             ? ""
             : "shadow-md backdrop-blur-md"}
               w-full
@@ -28,8 +28,8 @@ export const AppBarRoot = ({ children }: { children: ReactNode}) => {
               justify-between
               lg:justify-end
             `}
-        >
-          {children}
+      >
+        {children}
       </div>
     </header>
   )
