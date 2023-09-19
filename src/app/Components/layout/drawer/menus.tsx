@@ -21,16 +21,16 @@ export const contactsMenu: Menu = {
       title: "3º GRUPAMENTO DE BOMBEIROS Serra Talhada",
     }, {
       title: "4º GRUPAMENTO DE BOMBEIROS Petrolina",
-      link: "CONTATO/1sQRT0gThm4GjnbZTJhCrgtZpa8VPrkjB"
+      link: "CONTATO/1zf08M67zYbFzYhURJiFW3n5r044Sej5S"
     }, {
       title: "5º GRUPAMENTO DE BOMBEIROS Salgueiro",
-      link: "CONTATO/1sQRT0gThm4GjnbZTJhCrgtZpa8VPrkjB"
+      link: "CONTATO/1-fMAuFpgmtH2bGtY8zZPs5xh90MMAEUG"
     }, {
       title: "9º GRUPAMENTO DE BOMBEIROS Arcoverde",
-      link: "CONTATO/1sQRT0gThm4GjnbZTJhCrgtZpa8VPrkjB"
+      link: "CONTATO/1FR0WzHoZBpzFnA48p44X9RFTmtOn_MJH"
     }, {
       title: "CAT SERTÃO: Atendimento ao Público",
-      link: "CONTATO/1sQRT0gThm4GjnbZTJhCrgtZpa8VPrkjB"
+      link: "CONTATO/1kmtsh_Rur2ufP1u3IzCldZNNc8ZNlnAE"
     },
   ]
 }
